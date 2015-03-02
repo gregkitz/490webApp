@@ -1,0 +1,19 @@
+/*
+  Customizing elements beyond that of bootstrap
+*/
+
+div.carousel-inner img {
+   width: 100%;
+   min-height: 300px;
+   max-height: 300px;
+}
+
+#logo {
+   height: 150px;
+   width: auto;
+}
+
+#headerSearch .form-control,
+#headerSearch .btn {
+   height: 70px;
+}
