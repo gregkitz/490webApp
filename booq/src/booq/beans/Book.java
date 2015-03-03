@@ -1,4 +1,4 @@
-package beans;
+package booq.beans;
 
 public class Book {
   private double price; 
