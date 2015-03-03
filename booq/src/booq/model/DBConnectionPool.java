@@ -4,7 +4,46 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 
+import booq.beans.Book;
+
+
 public class DBConnectionPool {
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public ArrayList<Connection> getConnList() {
+		return connList;
+	}
+
+	public void setConnList(ArrayList<Connection> connList) {
+		this.connList = connList;
+	}
+
+	public String getDriver() {
+		return driver;
+	}
+
 	final String driver = "org.gjt.mm.mysql.Driver";
 	String url;
 	String username;
@@ -41,4 +80,12 @@ public class DBConnectionPool {
 			}catch(Exception e){}
 		}
 	}
+	
+//----special methods // 
+	public ArrayList<Book> getSearchResults(String keyword) {
+	    return BookPeer.searchBooks(this, keyword);
+	    }
+	
+	
+	
 }
