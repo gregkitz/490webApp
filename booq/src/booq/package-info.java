@@ -5,4 +5,4 @@
  * @author Luke
  *
  */
-package booq.model;
+package booq;
