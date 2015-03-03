@@ -2,6 +2,7 @@ package booq;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,11 +15,6 @@ import booq.model.DBConnectionPool;
 
 import com.mysql.jdbc.Connection;
 
-import booq.model;
-
-/**
- * Servlet implementation class MainServlet
- */
 @WebServlet("/MainServlet")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,20 +31,38 @@ public class MainServlet extends HttpServlet {
         String username = config.getInitParameter("username");
         String passwd = config.getInitParameter("password");
         
-        DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
+        try {
+        	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
+        } catch (Exception e){}
 		//Connection conn = (Connection) connPool.getConnection();
-        }
+    }
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	    String url = "/jsp/index.jsp"; //default homepage
+	    
+	    String action = request.getParameter("action");
+	    if (action != null) {
+	    	switch (action) {
+	    	case "signup":
+	    		url = "/jsp/signup.jsp";
+	    		break;
+	    	case "login":
+	    		url = "/jsp/login.jsp";
+	    		break;
+	    	case "search":
+	    		url = "/jsp/searchResults.jsp";
+	    		break;
+	    	}
+	    }
+		
+		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+	    rd.forward(request, response);
 	}
 
 }
