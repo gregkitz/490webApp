@@ -10,9 +10,9 @@ import booq.beans.Book;
 
 public class BookQueries {
 	private static final String queryBase =
-		"select bookId, title, author, price, stock, "
-		+ "genreName, Book.genreId from Book inner join Genre on "
-		+ "Book.genreId = Genre.genreId where ";
+		"select Book.id, title, author, price, stock, "
+		+ "genreName, genreId, description from Book inner join Genre on "
+		+ "Book.genreId = Genre.id where ";
 	
 	public static ArrayList<Book> searchBooks(DBConnectionPool connPool,
 								  String keyword) {
@@ -54,6 +54,7 @@ public class BookQueries {
 		              book.setStock(rs.getInt(5));
 		              book.setGenreName(rs.getString(6));
 		              book.setGenreId(rs.getInt(7));
+		              book.setDescription(rs.getString(8));
 		              books.add(book);
 				}
 				rs.close();

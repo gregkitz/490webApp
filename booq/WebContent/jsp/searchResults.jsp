@@ -17,32 +17,37 @@
 <body>
 
 <% 
-  String search = request.getParameter("search"); 
-  // String search = "Cowboy"; 
+  //String search = request.getParameter("search"); 
+   String search = "Greg"; 
   if (search != null) {
 
 %>
 <% 
-connPool = new DBConnectionPool("jdbc:mysql://127.0.0.1:3306/booqDB", "root", "");
+connPool = new DBConnectionPool("jdbc:mysql://127.0.0.1:3306/booqDB", "root", "1234");
 
 ArrayList<Book> books = connPool.searchBooks(search); 
 Iterator<Book> iterator = books.iterator(); 
 
-Book book = (Book) iterator.next(); 
-
+//Book book = (Book) iterator.next(); 
+Book book;
 %>
 
 <h2> 
-<%=book.getTitle() %>
+<%while (iterator.hasNext()) {
+  book = iterator.next(); %>
+  <%=book.getTitle()%>
+<br>
 <%=book.getAuthor() %>
+<br>
 <%=book.getPrice() %>
-<%=book.getDescription() %>
+<br>
+<%=book.getDescription()%> 
+<br> <br>
 
-<% 
+<% }
 
-}
+} %>
 
-%>
 </h2>
 </body>
 </html>
