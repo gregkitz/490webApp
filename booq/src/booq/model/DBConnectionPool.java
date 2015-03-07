@@ -2,8 +2,16 @@ package booq.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
+import eshop.beans.CartItem;
+import eshop.beans.Customer;
+import eshop.model.BookPeer;
+import eshop.model.OrderDetailsPeer;
+import eshop.model.OrderPeer;
 import booq.beans.Book;
 
 
@@ -84,19 +92,36 @@ public class DBConnectionPool {
 //----special methods // 
 	
 	
-//----searching=====// 
+//----book queries---//
+	
+	///all books in a genre by putting in a genre id
+	//search for books by using a keyword. Matching books in title and author
+	//method that returns the book that is requested based on ID 
+
+
+	//search for anything matching
+	//search for book id
+	//list books by genre 
+	//author search 
+	//publication date 
+	
+	
 	public ArrayList<Book> getSearchResults(String keyword) {
-	    return BookPeer.searchBooks(this, keyword);
+	    return BookQueries.searchBooks(this, keyword);
 	    }
 	
 	
-//---get books in category --//
-	
-//---get book details-----// 
-	
+	 public ArrayList<Book> getBooksInCategory(Integer genreId) {
+		    return BookQueries.getBooksByCategory(this, genreId);
+		    }
+
+	 public Book getBookDetails(String bookID) {
+		    return BookQueries.getBookById(this, bookID);
+		    }
+
 //----ordering operations ----// 
 	
 //insert order--//
-	
+	 public long insertOrder(); 
 	
 }
