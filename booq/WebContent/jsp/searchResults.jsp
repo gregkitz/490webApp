@@ -22,7 +22,7 @@
 
 %>
 <% 
-ArrayList<Book> books = DBConnectionPool.getSearch(search); 
+ArrayList<Book> books = DBConnectionPool.searchBooks(search); 
 Iterator<Book> iterator = books.iterator(); 
 
 Book book = (Book) iterator.next(); 

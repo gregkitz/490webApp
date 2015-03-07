@@ -7,11 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import eshop.beans.CartItem;
-import eshop.beans.Customer;
-import eshop.model.BookPeer;
-import eshop.model.OrderDetailsPeer;
-import eshop.model.OrderPeer;
+import book.beans.PurchaseItem;
+import book.beans.Customer;
+import book.model.BookQueries;
+import book.model.CreateOrder;
 import booq.beans.Book;
 
 
@@ -106,22 +105,22 @@ public class DBConnectionPool {
 	//publication date 
 	
 	
-	public ArrayList<Book> getSearchResults(String keyword) {
+	public ArrayList<Book> searchBooks(String keyword) {
 	    return BookQueries.searchBooks(this, keyword);
 	    }
 	
 	
-	 public ArrayList<Book> getBooksInCategory(Integer genreId) {
-		    return BookQueries.getBooksByCategory(this, genreId);
-		    }
-
-	 public Book getBookDetails(String bookID) {
-		    return BookQueries.getBookById(this, bookID);
-		    }
+//	 public ArrayList<Book> getBooksInCategory(Integer genreId) {
+//		    return BookQueries.getBooksByCategory(this, genreId);
+//		    }
+//
+//	 public Book getBookDetails(String bookID) {
+//		    return BookQueries.getBookById(this, bookID);
+//		    }
 
 //----ordering operations ----// 
 	
 //insert order--//
-	 public long insertOrder(); 
+	// public long insertOrder(); 
 	
 }
