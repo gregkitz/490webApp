@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="beans.Book"%>  
+<%@page import="booq.beans.Book"%>  
 <jsp:useBean id="DBConnectionPool" scope="application"
   class="booq.model.DBConnectionPool"/>  
     

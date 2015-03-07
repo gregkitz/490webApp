@@ -82,10 +82,21 @@ public class DBConnectionPool {
 	}
 	
 //----special methods // 
+	
+	
+//----searching=====// 
 	public ArrayList<Book> getSearchResults(String keyword) {
 	    return BookPeer.searchBooks(this, keyword);
 	    }
 	
+	
+//---get books in category --//
+	
+//---get book details-----// 
+	
+//----ordering operations ----// 
+	
+//insert order--//
 	
 	
 }
