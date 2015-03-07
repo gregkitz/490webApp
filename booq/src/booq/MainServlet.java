@@ -38,7 +38,7 @@ public class MainServlet extends HttpServlet {
         
         try {
         	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
-        } catch (Exception e){}
+        } catch (Exception e){ e.printStackTrace(); }
 		//Connection conn = (Connection) connPool.getConnection();
     }
     

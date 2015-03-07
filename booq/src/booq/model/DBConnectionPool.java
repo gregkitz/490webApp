@@ -7,10 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import book.beans.PurchaseItem;
-import book.beans.Customer;
-import book.model.BookQueries;
-import book.model.CreateOrder;
+//import book.beans.PurchaseItem;
+//import book.beans.Customer;
+//import book.model.BookQueries;
+//import book.model.CreateOrder;
 import booq.beans.Book;
 
 
@@ -56,6 +56,8 @@ public class DBConnectionPool {
 	String username;
 	String passwd; 
 	ArrayList<Connection> connList = new ArrayList<Connection>();
+	
+	public DBConnectionPool() {}
 	
 	public DBConnectionPool(String url, String username, String passwd) throws Exception{
 		this.url = url;
