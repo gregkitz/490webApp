@@ -17,13 +17,13 @@
 <body>
 
 <% 
-  //String search = request.getParameter("search"); 
-   String search = "Greg"; 
+  String search = request.getParameter("search"); 
+  // String search = "Cowboy"; 
   if (search != null) {
 
 %>
 <% 
-connPool = new DBConnectionPool("jdbc:mysql://127.0.0.1:3306/booqDB", "root", "1234");
+connPool = new DBConnectionPool("jdbc:mysql://127.0.0.1:3306/booqDB", "root", "");
 
 ArrayList<Book> books = connPool.searchBooks(search); 
 Iterator<Book> iterator = books.iterator(); 
