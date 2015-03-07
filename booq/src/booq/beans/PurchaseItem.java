@@ -1,14 +1,25 @@
 package booq.beans;
 
 public class PurchaseItem {
-	  private String author;
-	  private String title;
-	  private double price;
-	  public String getAuthor() {
-		return author;
+	
+	private double ID;  
+	private int bookId; 
+	private String title;
+	private String author; 
+	private int quantity; 
+	private double price; 
+	private int shippingId;
+	public double getID() {
+		return ID;
 	}
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setID(double iD) {
+		ID = iD;
+	}
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
 	}
 	public String getTitle() {
 		return title;
@@ -16,25 +27,32 @@ public class PurchaseItem {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	public double getPrice() {
 		return price;
 	}
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getBookID() {
-		return bookID;
+	public int getShippingId() {
+		return shippingId;
 	}
-	public void setBookID(String bookID) {
-		this.bookID = bookID;
-	}
-	public String getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
-	}
-	private String bookID;
-	  private String quantity;
+	public void setShippingId(int shippingId) {
+		this.shippingId = shippingId;
+	} 
+	
+	
+	
 	
 }
