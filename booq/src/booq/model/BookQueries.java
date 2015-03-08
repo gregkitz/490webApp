@@ -59,8 +59,8 @@ public class BookQueries {
 				}
 				rs.close();
 				s.close();
-				connPool.closeAll();
 			}
+			connPool.closeAll();
 		} catch (SQLException e) { e.printStackTrace(); }
 		
 		return books;

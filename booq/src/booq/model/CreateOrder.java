@@ -29,7 +29,9 @@ public class CreateOrder {
 				Statement s = conn.createStatement();
 				s.executeUpdate(query1);
 				s.executeUpdate(query2);
+				s.close();
 			}
+			connPool.closeAll();
 	   } catch (SQLException e) { e.printStackTrace(); }
    } 
 }
