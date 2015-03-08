@@ -17,19 +17,19 @@
 <body>
 
 <% 
-  //String search = request.getParameter("search"); 
-   String search = "Greg"; 
+  String search = request.getParameter("search"); 
+   //String search = "Greg"; 
   if (search != null) {
 
 %>
 <% 
-connPool = new DBConnectionPool("jdbc:mysql://127.0.0.1:3306/booqDB", "root", "1234");
+connPool = new DBConnectionPool();
 
 ArrayList<Book> books = connPool.searchBooks(search); 
 Iterator<Book> iterator = books.iterator(); 
 
-//Book book = (Book) iterator.next(); 
-Book book;
+Book book = (Book) iterator.next(); 
+//Book book;
 %>
 
 <h2> 
