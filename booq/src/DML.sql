@@ -1,6 +1,6 @@
 use booqDB;
 
-insert into Genre(genreId, genreName) values
+insert into Genre(id, genreName) values
   (1,'Action'),
   (2,'Adventure'),
   (3,'Comedy'),
@@ -15,7 +15,7 @@ insert into Genre(genreId, genreName) values
   (12,'Science Fiction'),
   (13,'Thriller');
 
-insert into Book(bookId, title, author, price, genreId) values
+insert into Book(id, title, author, price, genreId) values
   (1, 'My Name Is Dallas', 'Greg Kitzmiller', 44.99, 1),
   (2, 'Harry Potter and the Rolling Indiana Jones Goblet', 'David Bowie', 24.99, 2),
   (3, 'Greg','Dallas van Ess', 8.95, 3),
@@ -28,4 +28,5 @@ insert into Book(bookId, title, author, price, genreId) values
   (10, 'What is Truth?', 'Greg Kitzmiller', 8.95, 10),
   (11, 'Cowboys Past Curfew', 'Dallas van Ess', 8.95, 11),
   (12, 'Robots', 'Henry XVI', 8.95, 12),
-  (13, 'Thriller', 'Michael Jackson', 8.95, 13);
+  (13, 'Thriller', 'Michael Jackson', 8.95, 13),
+  (14, '50 Layers of Skin', 'Greg Kitzmiller', 8.95, 11)
