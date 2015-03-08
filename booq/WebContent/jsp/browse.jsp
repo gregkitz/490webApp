@@ -16,29 +16,26 @@
 <% 
 connPool = new DBConnectionPool();
 
-//ArrayList<Book> books = connPool.searchBooks(search); 
-//Iterator<Book> iterator = books.iterator(); 
+ArrayList<String> genres = connPool.getGenres(); 
+Iterator<String> iterator = genres.iterator(); 
 
-String[] genres = connPool.getGenres(); 
+
 connPool.test(); 
 //String theGenre = (String) iterator.next(); 
 //Book book;
 %>
  
 <h2> 
+
 <%
-int i = 0;
+String theGenre; 
 
-if (genres[0] == null) { %> null <%} 
+while (iterator.hasNext()) {
+ theGenre  = iterator.next(); %>
+<br><%=theGenre %> <br>
 
-while (genres[i] != null) {
-  %>
-  <%=genres[i]%>
-<% 
-i++;
-}%>
+<% }
 
-
-
+%>
 </body>
 </html>

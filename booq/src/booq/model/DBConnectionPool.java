@@ -122,7 +122,7 @@ public class DBConnectionPool {
 		return BookQueries.getBook(this, bookID);
 	}
 	
-	public String[] getGenres(){
+	public ArrayList<String> getGenres(){
 		return GenreQueries.getGenres(this); 
 	}
 
