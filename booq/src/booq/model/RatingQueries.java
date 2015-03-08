@@ -9,10 +9,26 @@ import java.util.ArrayList;
 import booq.beans.Rating;
 
 public class RatingQueries {
-	public static ArrayList<Rating> getRatings(DBConnectionPool connPool, int bookId) {
-		String query = "select bookId";
+	
+	private static final String queryBase =
+			"select bookId, customerId, ratingDate, rating, " 
+			+ "description from Ratings	where ";
+	
+	public static ArrayList<Rating> getRatingsByBook
+	(DBConnectionPool connPool, int bookId) {
+		String query = queryBase + "bookId = " + bookId;
+		return getRatings(connPool, query);
+	}
+	
+	public static ArrayList<Rating> getRatingsByCustomer
+	(DBConnectionPool connPool, int custId) {
+		String query = queryBase + "customerId = " + custId;
+		return getRatings(connPool, query);
+	}
+	
+	private static ArrayList<Rating> getRatings
+	(DBConnectionPool connPool, String query) {
 		ArrayList<Rating> ratings = new ArrayList<Rating>();
-		
 		try {
 			Connection conn = null;
 			try {
