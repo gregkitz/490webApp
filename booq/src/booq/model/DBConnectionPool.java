@@ -48,13 +48,19 @@ public class DBConnectionPool {
 		return driver;
 	}
 
-	final String driver = "org.gjt.mm.mysql.Driver";
-	String url;
-	String username;
-	String passwd; 
+	private final String driver = "org.gjt.mm.mysql.Driver";
+	private String url;
+    private String username;
+    private String passwd;
 	ArrayList<Connection> connList = new ArrayList<Connection>();
 	
-	public DBConnectionPool() {}
+	public DBConnectionPool() throws Exception {
+		url = "jdbc:mysql://127.0.0.1:3306/booqDB";
+	    username = "root";
+	    passwd = "1234";
+		
+		Class.forName(driver);
+	}
 	
 	public DBConnectionPool(String url, String username, String passwd) throws Exception{
 		this.url = url;
@@ -87,8 +93,6 @@ public class DBConnectionPool {
 		}
 	}
 	
-//----special methods // 
-	
 	
 //----book queries---//
 	
@@ -96,30 +100,23 @@ public class DBConnectionPool {
 	//search for books by using a keyword. Matching books in title and author
 	//method that returns the book that is requested based on ID 
 
-
 	//search for anything matching
 	//search for book id
 	//list books by genre 
 	//author search 
 	//publication date 
 	
-	public void test()
-	{
-	System.out.println("works"); 	
-	}
-	
 	public ArrayList<Book> searchBooks(String keyword) {
 	    return BookQueries.searchBooks(this, keyword);
-	    }
+	}
 	
-	
-//	 public ArrayList<Book> getBooksInCategory(Integer genreId) {
-//		    return BookQueries.getBooksByCategory(this, genreId);
-//		    }
-//
-//	 public Book getBookDetails(String bookID) {
-//		    return BookQueries.getBookById(this, bookID);
-//		    }
+	public ArrayList<Book> getBooksInCategory(Integer genreId) {
+		return BookQueries.getBooksByGenre(this, genreId);
+	}
+
+	public Book getBookDetails(int bookID) {
+		return BookQueries.getBook(this, bookID);
+	}
 
 //----ordering operations ----// 
 	

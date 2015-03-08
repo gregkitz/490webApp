@@ -13,9 +13,11 @@ public class PurchaseItem {
 	//item info
 	private Book book;
 	private int  quantity;
+	private String date;
 
 	
 	//getters
+	public String   getDate() { return date; }
 	public int 	    getShippingId() { return shippingId; }
 	public int 	    getId() 		{ return id; }
 	public Customer getCustomer()	{ return cus; }
@@ -26,6 +28,7 @@ public class PurchaseItem {
     public int      getQuantity() 	{ return quantity; }
     
     //setters
+    public void setDate(String date) 		  { this.date = date; }
     public void setShippingId(int shippingId) { this.shippingId = shippingId; }
     public void setId(int id) 				  { this.id = id; }
     public void setCustomer(Customer cus)	  { this.cus = cus; }

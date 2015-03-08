@@ -10,9 +10,9 @@ import booq.beans.PurchaseItem;
 public class CreateOrder {
    public static void insert(DBConnectionPool connPool, PurchaseItem order) { 
 	   String query1 = "insert into OrderDetails (id, bookId, quantity, "
-		   + "shippingId) values (" + order.getId() + ", "
+		   + "shippingId, orderDate) values (" + order.getId() + ", "
 		   + order.getBook().getId() + ", " + order.getQuantity() + ", "
-		   + order.getShippingId() + ")";
+		   + order.getShippingId() + ", " + order.getDate() + ")";
 	   
 	   String query2 = "insert into ShippingInfo (id, customerId, ccName, " 
 		   + "ccNumber, ccExpire) values (" + order.getShippingId() + ", "
