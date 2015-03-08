@@ -60,8 +60,9 @@ create table ShippingInfo (
 create table OrderDetails (
 	id int not null auto_increment unique,
 	bookId int,
-	quantity integer,
+	quantity int,
 	shippingId int,
+	orderDate date,
 
 	primary key(id),
 	foreign key(shippingId) references ShippingInfo(id),
