@@ -9,16 +9,13 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import booq.model.DBConnectionPool;
-
-import com.mysql.jdbc.Connection;
+//import booq.model.DBConnectionPool;
 
 @WebServlet("/MainServlet")
 public class MainServlet extends HttpServlet {
@@ -32,15 +29,14 @@ public class MainServlet extends HttpServlet {
         System.out.println("*** initializing controller servlet.");
         super.init(config);
         
-        String url = config.getInitParameter("dbUrl");
+        /*String url = config.getInitParameter("dbUrl");
         String username = config.getInitParameter("username");
         String passwd = config.getInitParameter("password");
         
         try {
         	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
         	System.out.println("connection created"); 
-        } catch (Exception e){ e.printStackTrace(); }
-		//Connection conn = (Connection) connPool.getConnection();
+        } catch (Exception e){ e.printStackTrace(); }*/
     }
     
     
