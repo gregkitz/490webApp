@@ -6,12 +6,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import booq.beans.Genre;
+
 public class GenreQueries {
 	//returns all genres in a list
 	//where genreId is index, and the value is genreName
-	public static ArrayList<String> getGenres(DBConnectionPool connPool) {
+	public static ArrayList<Genre> getGenres(DBConnectionPool connPool) {
 		String query = "select id, genreName from Genre";
-		ArrayList<String> genres = new ArrayList<String>();
+		ArrayList<Genre> genres = new ArrayList<Genre>();
 		
 		try {
 			Connection conn = null;
@@ -23,7 +25,10 @@ public class GenreQueries {
 				Statement s = conn.createStatement();
 				ResultSet rs = s.executeQuery(query);
 				while (rs.next()) {
-		              genres.add(rs.getInt(1), rs.getString(2));
+					Genre genre = new Genre();
+					genre.setId(rs.getInt(1));
+					genre.setName(rs.getString(2));
+					genres.add(genre);
 				}
 				rs.close();
 				s.close();
