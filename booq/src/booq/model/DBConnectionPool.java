@@ -12,6 +12,10 @@ import booq.beans.Book;
 
 
 public class DBConnectionPool {
+	public void test(){ 
+		System.out.println("works"); 
+	}
+	
 	public String getUrl() {
 		return url;
 	}
@@ -116,6 +120,10 @@ public class DBConnectionPool {
 
 	public Book getBookDetails(int bookID) {
 		return BookQueries.getBook(this, bookID);
+	}
+	
+	public String[] getGenres(){
+		return GenreQueries.getGenres(this); 
 	}
 
 //----ordering operations ----// 
