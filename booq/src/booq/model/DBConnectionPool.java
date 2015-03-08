@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 
+
 //import book.beans.PurchaseItem;
 //import book.beans.Customer;
 //import book.model.BookQueries;
 //import book.model.CreateOrder;
 import booq.beans.Book;
+import booq.beans.Genre;
 
 
 public class DBConnectionPool {
@@ -122,7 +124,7 @@ public class DBConnectionPool {
 		return BookQueries.getBook(this, bookID);
 	}
 	
-	public ArrayList<String> getGenres(){
+	public ArrayList<Genre> getGenres(){
 		return GenreQueries.getGenres(this); 
 	}
 

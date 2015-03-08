@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="booq.beans.Book"%>  
+<%@page import="booq.beans.Book"%> 
+<%@page import="booq.beans.Genre"%>  
 <%@page import="booq.model.DBConnectionPool"%>     
  <!--<jsp:useBean id="connPool" scope="application"
   class="booq.model.DBConnectionPool"/>-->   
@@ -16,8 +17,8 @@
 <% 
 connPool = new DBConnectionPool();
 
-ArrayList<String> genres = connPool.getGenres(); 
-Iterator<String> iterator = genres.iterator(); 
+ArrayList<Genre> genres = connPool.getGenres();
+Iterator<Genre> iterator = genres.iterator(); 
 
 
 connPool.test(); 
@@ -28,11 +29,11 @@ connPool.test();
 <h2> 
 
 <%
-String theGenre; 
+Genre theGenre; 
 
 while (iterator.hasNext()) {
  theGenre  = iterator.next(); %>
-<br><%=theGenre %> <br>
+<br><%=theGenre.getId() %> <%=theGenre.getName() %> <br>
 
 <% }
 
