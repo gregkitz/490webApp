@@ -14,6 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 
 //import booq.model.DBConnectionPool;
 
@@ -47,6 +50,9 @@ public class MainServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    String url = "/jsp/index.jsp"; //default homepage
+	   HttpSession session = request.getSession(); 
+	   String productCode = "bookTest"; 
+	   session.setAttribute("productCode", productCode); 
 	    
 	    String action = request.getParameter("action");
 	    if (action != null) {
