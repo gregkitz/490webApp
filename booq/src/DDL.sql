@@ -57,7 +57,7 @@ create table ShippingInfo (
 	foreign key(customerId) references Customer(id)
 );
 
-create table OrderDetails (
+create table MainOrder (
 	id int not null auto_increment unique,
 	bookId int,
 	quantity int,
@@ -81,6 +81,6 @@ create table Ratings (
 
 create index genreIdKey 		on Genre(id);
 create index bookIdKey 			on Book(id);
-create index orderDetailsIdKey 	on OrderDetails(id);
+create index mainOrderIdKey 	on MainOrder(id);
 create index shippingInfoIdKey 	on ShippingInfo(id);
 create index customerIdKey		on Customer(id);

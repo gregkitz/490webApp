@@ -3,13 +3,13 @@ package booq.model;
 import java.sql.Connection;
 import java.sql.SQLException; 
 import java.sql.Statement; 
-import booq.beans.PurchaseItem;
+import booq.beans.CartItem;
 
 
 
 public class CreateOrder {
-   public static void insert(DBConnectionPool connPool, PurchaseItem order) { 
-	   String query1 = "insert into OrderDetails (id, bookId, quantity, "
+   public static void insert(DBConnectionPool connPool, CartItem order) { 
+	   String query1 = "insert into MainOrder (id, bookId, quantity, "
 		   + "shippingId, orderDate) values (" + order.getId() + ", "
 		   + order.getBook().getId() + ", " + order.getQuantity() + ", "
 		   + order.getShippingId() + ", " + order.getDate() + ")";

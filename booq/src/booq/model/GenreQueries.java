@@ -9,10 +9,21 @@ import java.util.ArrayList;
 import booq.beans.Genre;
 
 public class GenreQueries {
+	
+	private static final String queryBase = "select id, genreName from Genre";
+	
 	//returns all genres in a list
 	//where genreId is index, and the value is genreName
 	public static ArrayList<Genre> getGenres(DBConnectionPool connPool) {
-		String query = "select id, genreName from Genre";
+		return getGenresHelper(connPool, queryBase);
+	}
+	
+	public static ArrayList<Genre> getGenre(DBConnectionPool connPool, int genreId) {
+		String query = queryBase + " where id = " + genreId;
+		return getGenresHelper(connPool, query);
+	}
+	
+	private static ArrayList<Genre> getGenresHelper(DBConnectionPool connPool, String query) {
 		ArrayList<Genre> genres = new ArrayList<Genre>();
 		
 		try {

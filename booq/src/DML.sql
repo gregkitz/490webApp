@@ -29,7 +29,8 @@ insert into Book(id, title, author, price, genreId, stock) values
   (11, 'Cowboys Past Curfew', 'Dallas van Ess', 8.95, 11, 2),
   (12, 'Robots', 'Henry XVI', 8.95, 12, 2),
   (13, 'Thriller', 'Michael Jackson', 8.95, 13, 1),
-  (14, '50 Layers of Skin', 'Greg Kitzmiller', 8.95, 11, 14);
+  (14, '50 Layers of Skin', 'Greg Kitzmiller', 20.01, 11, 14),
+  (15, 'Working with Greg:  My Trials', 'Luke Selbeck', 5.00, 8, 7);
 
 insert into Ratings(bookId, customerId, ratingDate, rating) values
   (1, 1, '2015-02-12', 4),
