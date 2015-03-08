@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class GenreQueries {
-	public static String[] getGenres(DBConnectionPool connPool) {
+	//returns all genres in a list
+	//where genreId is index, and the value is genreName
+	public static ArrayList<String> getGenres(DBConnectionPool connPool) {
 		String query = "select id, genreName from Genre";
-		String[] genres = new String[500];
+		ArrayList<String> genres = new ArrayList<String>();
 		
 		try {
 			Connection conn = null;
@@ -20,7 +23,7 @@ public class GenreQueries {
 				Statement s = conn.createStatement();
 				ResultSet rs = s.executeQuery(query);
 				while (rs.next()) {
-		              genres[rs.getInt(1)] = rs.getString(2);
+		              genres.add(rs.getInt(1), rs.getString(2));
 				}
 				rs.close();
 				s.close();

@@ -14,7 +14,7 @@ public class CreateOrder {
 		   + order.getBook().getId() + ", " + order.getQuantity() + ", "
 		   + order.getShippingId() + ", " + order.getDate() + ")";
 	   
-	   String query2 = "insert into ShippingInfo (id, customerId, ccName, " 
+	   String query2 = "insert into ShippingInfo (id, customerId, ccName, "
 		   + "ccNumber, ccExpire) values (" + order.getShippingId() + ", "
 		   + order.getCustomer().getId() + ", " + order.getCcName() + ", "
 		   + order.getCcNumber() + ", " + order.getCcExpire() + ")";

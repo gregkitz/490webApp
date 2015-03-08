@@ -69,6 +69,16 @@ create table OrderDetails (
 	foreign key(bookId) references Book(id)
 );
 
+create table Ratings (
+	customerId int,
+	bookId int,
+	ratingDate date,
+	rating int,
+	description nvarchar(1000),
+
+	primary key(customerId, bookId)
+);
+
 create index genreIdKey 		on Genre(id);
 create index bookIdKey 			on Book(id);
 create index orderDetailsIdKey 	on OrderDetails(id);

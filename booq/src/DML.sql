@@ -29,4 +29,17 @@ insert into Book(id, title, author, price, genreId, stock) values
   (11, 'Cowboys Past Curfew', 'Dallas van Ess', 8.95, 11, 2),
   (12, 'Robots', 'Henry XVI', 8.95, 12, 2),
   (13, 'Thriller', 'Michael Jackson', 8.95, 13, 1),
-  (14, '50 Layers of Skin', 'Greg Kitzmiller', 8.95, 11, 14)
+  (14, '50 Layers of Skin', 'Greg Kitzmiller', 8.95, 11, 14);
+
+insert into Ratings(bookId, customerId, ratingDate, rating) values
+  (1, 1, '2015-02-12', 4),
+  (2, 2, '2000-01-01', 3),
+  (3, 3, '2008-03-30', 3),
+  (4, 4, '2001-09-11', 2),
+  (5, 5, '2001-09-11', 5),
+  (6, 6, '2015-03-8', 5),
+  (7, 7, '2014-12-25', 1);
+
+update Ratings SET description = 
+  "I was blown away by this book"
+  where bookId = 1 and customerId = 1;
