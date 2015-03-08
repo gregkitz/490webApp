@@ -4,6 +4,7 @@ public class PurchaseItem {
 	private int id;
 	
 	//shipping info
+	private int shippingId;
 	private Customer cus;
 	private String ccName;
 	private String ccNumber;
@@ -15,6 +16,7 @@ public class PurchaseItem {
 
 	
 	//getters
+	public int 	    getShippingId() { return shippingId; }
 	public int 	    getId() 		{ return id; }
 	public Customer getCustomer()	{ return cus; }
     public String   getCcName() 	{ return ccName; }
@@ -24,11 +26,12 @@ public class PurchaseItem {
     public int      getQuantity() 	{ return quantity; }
     
     //setters
-    public void setId(int id) 				 { this.id = id; }
-    public void setCustomer(Customer cus)	 { this.cus = cus; }
-    public void setCcName(String ccName) 	 { this.ccName = ccName; }
-    public void setCcNumber(String ccNumber) { this.ccNumber = ccNumber; }
-    public void setCcExpire(String ccExpire) { this.ccExpire = ccExpire; }
-    public void setBook(Book book) 			 { this.book = book; }
-    public void setQuantity(int quantity) 	 { this.quantity = quantity; }
+    public void setShippingId(int shippingId) { this.shippingId = shippingId; }
+    public void setId(int id) 				  { this.id = id; }
+    public void setCustomer(Customer cus)	  { this.cus = cus; }
+    public void setCcName(String ccName) 	  { this.ccName = ccName; }
+    public void setCcNumber(String ccNumber)  { this.ccNumber = ccNumber; }
+    public void setCcExpire(String ccExpire)  { this.ccExpire = ccExpire; }
+    public void setBook(Book book) 			  { this.book = book; }
+    public void setQuantity(int quantity) 	  { this.quantity = quantity; }
 }

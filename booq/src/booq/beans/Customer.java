@@ -1,6 +1,7 @@
 package booq.beans;
 
 public class Customer {
+	private int id;
 	private String name;
 	private String email;
 	private String stAddr;
@@ -10,6 +11,7 @@ public class Customer {
 	private String zip;
 	private String apptNo;
 	
+	public int    getId() 			{ return id; }
     public String getcName() 		{ return name; }
     public String getEmail() 		{ return email; }
     public String getStreetAddr() 	{ return stAddr; }
@@ -19,6 +21,7 @@ public class Customer {
     public String getZip() 			{ return zip; }
     public String getApptNo() 		{ return apptNo; }
     
+    public void setId(int id)  					{ this.id = id; }
     public void setcName(String cName) 			{ this.name = cName; }
     public void setEmail(String email)			{ this.email = email; }
     public void setStAddr(String stAddr) 		{ this.stAddr = stAddr; }
