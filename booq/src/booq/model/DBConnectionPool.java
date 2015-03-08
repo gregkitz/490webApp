@@ -106,6 +106,10 @@ public class DBConnectionPool {
 	//author search 
 	//publication date 
 	
+	public void test()
+	{
+	System.out.println("works"); 	
+	}
 	
 	public ArrayList<Book> searchBooks(String keyword) {
 	    return BookQueries.searchBooks(this, keyword);

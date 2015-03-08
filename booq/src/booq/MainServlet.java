@@ -38,6 +38,7 @@ public class MainServlet extends HttpServlet {
         
         try {
         	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
+        	System.out.println("connection created"); 
         } catch (Exception e){ e.printStackTrace(); }
 		//Connection conn = (Connection) connPool.getConnection();
     }
