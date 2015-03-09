@@ -18,6 +18,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
 
+import booq.model.DBConnectionPool;
+import booq.model.SignupQueries;
+
 //import booq.model.DBConnectionPool;
 
 @WebServlet("/MainServlet")
@@ -32,14 +35,14 @@ public class MainServlet extends HttpServlet {
         System.out.println("*** initializing controller servlet.");
         super.init(config);
         
-        /*String url = config.getInitParameter("dbUrl");
+        String url = config.getInitParameter("dbUrl");
         String username = config.getInitParameter("username");
         String passwd = config.getInitParameter("password");
         
-        try {
-        	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
-        	System.out.println("connection created"); 
-        } catch (Exception e){ e.printStackTrace(); }*/
+//        try {
+//        	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
+//        	System.out.println("connection created"); 
+//        } catch (Exception e){ e.printStackTrace(); }
     }
     
     
@@ -49,7 +52,13 @@ public class MainServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String url = "/jsp/index.jsp"; //default homepage
+		try {
+        	DBConnectionPool connPool = new DBConnectionPool("jdbc:mysql://127.0.0.1:3306/booqDB", "root", "1234");
+        	System.out.println("connection created"); 
+    
+		
+		
+		String url = "/jsp/index.jsp"; //default homepage
 	   HttpSession session = request.getSession(); 
 	   String productCode = "bookTest"; 
 	   session.setAttribute("productCode", productCode); 
@@ -61,10 +70,9 @@ public class MainServlet extends HttpServlet {
 	    		url = "/jsp/signup.jsp";
 	    		break;
 	    	case "login":
-	    		int custID = SignupQueries.validateCredentials(request.getParameter("email"), request.getParameter("password"));
+	    		int custID = SignupQueries.validateCredentials(connPool, request.getParameter("email"), request.getParameter("password"));
 	    		if(custID > 0) {
-	    			
-	    			session.setAttribute("customerID",custID); 
+	       			session.setAttribute("customerID",custID); 
 	    			session.setAttribute("userEmail", request.getParameter("email"));
 	    			
 	    		}
@@ -79,6 +87,7 @@ public class MainServlet extends HttpServlet {
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 	    rd.forward(request, response);
+	    } catch (Exception e){ e.printStackTrace();
 	}
-
+	}
 }
