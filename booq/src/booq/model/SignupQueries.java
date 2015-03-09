@@ -37,7 +37,7 @@ public class SignupQueries {
 	}
 	
 	public static void insert(DBConnectionPool connPool, Customer c) {
-		String query = "insert into Customer (id, email, cName, passwd,	"
+		String query1 = "insert into Customer (id, email, cName, passwd,	"
 				+ "addrId, ccName, ccNumber, ccExpire) values ("
 				+ c.getId() 	  + ", "
 				+ c.getEmail()    + ", "
@@ -47,6 +47,15 @@ public class SignupQueries {
 				+ c.getCcName()	  + ", "
 				+ c.getCcNumber() + ", "
 				+ c.getCcExpire() + ")";
+		String query2 = "insert into Address (id, streetAddr, city, state, "
+				+ "country, zip, apptNo) values ("
+				+ c.getAddrId() 	+ ", "
+				+ c.getStreetAddr() + ", "
+				+ c.getCity() 		+ ", "
+				+ c.getState() 		+ ", "
+				+ c.getCountry() 	+ ", "
+				+ c.getZip() 		+ ", "
+				+ c.getApptNo() 	+ ")";
 		
 		try {
 			Connection conn = null;
@@ -56,7 +65,8 @@ public class SignupQueries {
 			
 			if (conn != null) {
 				Statement s = conn.createStatement();
-				s.executeUpdate(query);
+				s.executeUpdate(query1);
+				s.executeUpdate(query2);
 				s.close();
 			}
 			connPool.closeAll();

@@ -15,8 +15,10 @@ public class CreateOrder {
 			"insert into OrderLink (orderId, itemId) values (";
 	
 	public static void insert(DBConnectionPool connPool, Order order) {		
-		String query3, query2, query1 = query1Base + order.getId() + ", "
-				+ order.getCustomer().getId() + ", " + order.getDate() + ")";
+		String query3, query2, query1 = query1Base
+				+ order.getId() 			  + ", "
+				+ order.getCustomer().getId() + ", "
+				+ order.getDate() 			  + ")";
 		
 		try {
 			Connection conn = null;
@@ -29,11 +31,13 @@ public class CreateOrder {
 				s.executeUpdate(query1);
 				
 				for (int i = 0; i < order.getItems().size(); i++) {
-					query2 = query2Base + order.getItems().get(i).getId() + ", "
+					query2 = query2Base
+							+ order.getItems().get(i).getId() + ", "
 							+ order.getItems().get(i).getBook().getId() + ", "
 							+ order.getItems().get(i).getQuantity() + ")";
-					query3 = query3Base + order.getId() + ", "
-							+ order.getItems().get(i).getId();
+					query3 = query3Base
+							+ order.getId() + ", "
+							+ order.getItems().get(i).getId() + ")";
 					s.executeUpdate(query2);
 					s.executeUpdate(query3);
 				}
