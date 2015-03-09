@@ -41,32 +41,39 @@ create table Customer (
 	username nvarchar(50),
 	passwd nvarchar(50),
 	addrId int,
-
-	primary key(id),
-	foreign key(addrId) references Address(id)
-);
-
-create table ShippingInfo (
-	id int not null auto_increment unique,
-	customerId int,
 	ccName nvarchar(100),
 	ccNumber nvarchar(32),
 	ccExpire nvarchar(9),
 
 	primary key(id),
-	foreign key(customerId) references Customer(id)
+	foreign key(addrId) references Address(id)
+);
+
+create table CartItem (
+	id int not null,
+	bookId int,
+	quantity int,
+
+	primary key(id, bookId),
+	foreign key(bookId) references Book(id)
 );
 
 create table MainOrder (
 	id int not null auto_increment unique,
-	bookId int,
-	quantity int,
-	shippingId int,
+	customerId int,
 	orderDate date,
 
 	primary key(id),
-	foreign key(shippingId) references ShippingInfo(id),
-	foreign key(bookId) references Book(id)
+	foreign key(customerId) references Customer(id)
+);
+
+create table OrderLink (
+	orderId int,
+	itemId int,
+
+	primary key(orderId, itemId),
+	foreign key(orderId) references MainOrder(id),
+	foreign key(itemId) references CartItem(id)
 );
 
 create table Ratings (
@@ -82,5 +89,4 @@ create table Ratings (
 create index genreIdKey 		on Genre(id);
 create index bookIdKey 			on Book(id);
 create index mainOrderIdKey 	on MainOrder(id);
-create index shippingInfoIdKey 	on ShippingInfo(id);
 create index customerIdKey		on Customer(id);
