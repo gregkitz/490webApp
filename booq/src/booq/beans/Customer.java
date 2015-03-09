@@ -4,6 +4,8 @@ public class Customer {
 	private int id;
 	private String name;
 	private String email;
+	private String passwd;
+	private int    addrId;
 	private String stAddr;
 	private String city;
 	private String state;
@@ -17,6 +19,8 @@ public class Customer {
 	public int    getId() 			{ return id; }
     public String getcName() 		{ return name; }
     public String getEmail() 		{ return email; }
+    public String getPasswd() 		{ return passwd; }
+	public int    getAddrId() 		{ return addrId; }
     public String getStreetAddr() 	{ return stAddr; }
     public String getCity() 		{ return city; }
     public String getState() 		{ return state; }
@@ -30,6 +34,8 @@ public class Customer {
     public void setId(int id)  				 { this.id = id; }
     public void setcName(String cName) 		 { this.name = cName; }
     public void setEmail(String email)		 { this.email = email; }
+    public void setPasswd(String passwd)	 { this.passwd = passwd; }
+    public void setAddrId(int addrId)  		 { this.addrId = addrId; }
     public void setStAddr(String stAddr) 	 { this.stAddr = stAddr; }
     public void setCity(String city) 		 { this.city = city; }
     public void setState(String state) 		 { this.state = state; }

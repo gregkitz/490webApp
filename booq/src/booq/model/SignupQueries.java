@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import booq.beans.Customer;
 
 public class SignupQueries {
 	//returns the id of the Customer
@@ -33,5 +34,32 @@ public class SignupQueries {
 		} catch (SQLException e) { e.printStackTrace(); }
 		
 		return custId;
+	}
+	
+	public static void insert(DBConnectionPool connPool, Customer c) {
+		String query = "insert into Customer (id, email, cName, passwd,	"
+				+ "addrId, ccName, ccNumber, ccExpire) values ("
+				+ c.getId() 	  + ", "
+				+ c.getEmail()    + ", "
+				+ c.getcName()    + ", "
+				+ c.getPasswd()   + ", "
+				+ c.getAddrId()   + ", "
+				+ c.getCcName()	  + ", "
+				+ c.getCcNumber() + ", "
+				+ c.getCcExpire() + ")";
+		
+		try {
+			Connection conn = null;
+			try {
+				conn = connPool.getConnection();
+			} catch (Exception e) { e.printStackTrace(); }
+			
+			if (conn != null) {
+				Statement s = conn.createStatement();
+				s.executeUpdate(query);
+				s.close();
+			}
+			connPool.closeAll();
+		} catch (SQLException e) { e.printStackTrace(); }
 	}
 }
