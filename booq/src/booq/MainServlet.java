@@ -61,11 +61,19 @@ public class MainServlet extends HttpServlet {
 	    		url = "/jsp/signup.jsp";
 	    		break;
 	    	case "login":
-	    		url = "/jsp/login.jsp";
+	    		int custID = SignupQueries.validateCredentials(request.getParameter("email"), request.getParameter("password"));
+	    		if(custID > 0) {
+	    			
+	    			session.setAttribute("customerID",custID); 
+	    			session.setAttribute("userEmail", request.getParameter("email"));
+	    			
+	    		}
+	    		url = "/jsp/index.jsp";
 	    		break;
 	    	case "search":
 	    		url = "/jsp/searchResults.jsp";
 	    		break;
+	    
 	    	}
 	    }
 		

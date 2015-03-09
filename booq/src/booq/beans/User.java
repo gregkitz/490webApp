@@ -1,4 +1,4 @@
-package booq.model;
+package booq.beans;
 
 
 import java.io.Serializable;
