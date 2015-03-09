@@ -36,10 +36,9 @@ create table Address (
 
 create table Customer (
 	id int not null auto_increment unique,
-	email nvarchar(100),
+	email nvarchar(100) unique,
 	cName nvarchar(100),
-	username nvarchar(50),
-	passwd nvarchar(50),
+	passwd nvarchar(50) unique,
 	addrId int,
 	ccName nvarchar(100),
 	ccNumber nvarchar(32),

@@ -13,3 +13,5 @@ select id, genreName from Genre;
 select bookId, customerId, ratingDate, rating, description
 	from Ratings
 	where bookId = 5;
+
+select id from Customer where email = '4tehlulz' and passwd = 'gregor';
