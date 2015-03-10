@@ -73,10 +73,12 @@ public class MainServlet extends HttpServlet {
 	    		break;
 	    	case "login":
 	    		int custID = SignupQueries.validateCredentials(connPool, request.getParameter("email"), request.getParameter("password"));
+	    		
+	    		String custIDstring = Integer.toString(custID); 
 	    		System.out.println("cust id in servlet" + custID); 
 	    		if(custID > 0) {
 	    			System.out.println("case is login"); 
-	       			session.setAttribute("customerID",custID); 
+	       			session.setAttribute("customerIDstring",custIDstring); 
 	    			session.setAttribute("userEmail", request.getParameter("email"));
 	    			
 	    		}

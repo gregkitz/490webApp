@@ -50,9 +50,15 @@
           </form>
           <%
           HttpSession theSession = request.getSession();
-          String email = (String) theSession.getAttribute("userEmail");
-          int custID = (int) theSession.getAttribute("customerID"); 
-          
+          String email = (String) session.getAttribute("userEmail");
+         String custIDstring = (String) session.getAttribute("customerIDstring"); 
+         int custID = -2; 
+         if(custIDstring != null) {
+        	 
+        	 custID = Integer.parseInt(custIDstring); 
+        	 System.out.println("cust id in jsp" + custID); 
+         }
+         
         //  System.out.println("this is" + meow); 
           //Display username if already logged in 
           if (custID > 0) //login value is not null 
@@ -61,13 +67,13 @@
         	  Hello <%=email%> 
         	  
         	  <%
-        	  }
+        	  } else { 
           if (custID == -1){
         	  %> Invalid credentials. <% }
-        	  else {
+        	  
         	  
         	  %>
-        	  <%=email%>
+        	 
         	  
           <form class="navbar-form navbar-right"  method="post">
             <div class="form-group">
