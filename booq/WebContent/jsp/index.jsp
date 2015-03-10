@@ -33,6 +33,8 @@
 
   <body>
 
+
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -44,10 +46,7 @@
           </button>
           <a class="navbar-brand" href="#">booq</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="signup">
-            <input type="submit" class="btn btn-success" value="Sign up">
-          </form>
+        
           <%
           HttpSession theSession = request.getSession();
           String email = (String) session.getAttribute("userEmail");
@@ -64,18 +63,54 @@
           if (custID > 0) //login value is not null 
           {
         	  %>
-        	  Hello <%=email%> 
-        	  
-        	  <%
-        	  } else { 
-          if (custID == -1){
-        	  %> Invalid credentials. <% }
         	  
         	  
-        	  %>
-        	 
+        	  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">booq</a>
+        </div>
+       <div id="navbar" class="navbar-collapse collapse">  
+        <form class="navbar-form navbar-left" method="post" action="/booq/jsp/searchResults.jsp">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Find your booq here" name="search">
+        </div>
+         
+        <button type="submit" class="btn btn-default" name="action" value="search">Submit</button>
+        </form>
+        
+        	
+        	    
+        	    <form class="navbar-form navbar-right"  method="get">
+        	    <font color="white"> Signed in as:  <%=email%> </font>
+            <input type="submit" class="btn btn-success" name="action" value="logout">
+          </form>
+        	    
+        	    
+      
+        </div>
+          
+         
+          </nav> 
         	  
-          <form class="navbar-form navbar-right"  method="post">
+       <% } 
+          else { 
+    	   
+    	   if (custID == -1){
+         	  %> Invalid credentials. <% }
+ %>
+        	 <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" action="signup">
+            <input type="submit" class="btn btn-success" value="Sign up">
+          </form>
+        	  
+          <form class="navbar-form navbar-right"  method="post"  action="/booq/MainServlet?action=login">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control" name="email" required>
             </div>
@@ -96,7 +131,7 @@
         <img src="pics/bookLogo2.png" id="logo" class="col-sm-6 col-md-4">
         <div>
           <p>booq is an online marketplace for books, manuscripts, and scholarly articles. Please sign up for an account and get booqing!</p> 
-          <form class="input-group" id="headerSearch" method="post" >
+          <form class="input-group" id="headerSearch" method="post" action="/booq/jsp/searchResults.jsp">
             <input type="text" class="form-control" id="smallSearch" placeholder="Find your booq here" name="search">
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit" name="action" value="search">Go!</button>

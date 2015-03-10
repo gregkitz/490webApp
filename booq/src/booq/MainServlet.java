@@ -106,6 +106,10 @@ public class MainServlet extends HttpServlet {
 	    		}
 	    		url = "/jsp/index.jsp";
 	    		break;
+	    	case "logout" : 
+	    		session.invalidate(); 
+	    		url="/jsp/index.jsp";
+	    	     break; 
 	    	case "search":
 	    		System.out.println("search"); 
 	    		url = "/jsp/searchResults.jsp";
