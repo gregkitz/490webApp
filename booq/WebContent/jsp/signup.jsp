@@ -10,13 +10,13 @@
     <meta name="author" content="" />
     
     <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
     
     <!-- FONTAWESOME STYLE CSS -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
     
     <!-- CUSTOM STYLE CSS -->
-    <link href="../css/style.css" rel="stylesheet" />   
+    <link href="css/style.css" rel="stylesheet" />   
      
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -71,12 +71,12 @@
 	                        <div>Your Name</div>
 	                        <div class="form-group input-group">
 	                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-	                            <input type="text" class="form-control" value="Name" id="Name" />
+	                            <input type="text" class="form-control" id="Name" />
 	                        </div>
                             <div>Email</div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" value="Email" id="Email" />
+                                <input type="text" class="form-control" id="Email" />
                             </div>
                             <div>Password</div>
                             <div class="form-group input-group">
@@ -86,50 +86,50 @@
                             <div>Street Address</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Street Address" id="Street Address" />
+			                    <input type="text" class="form-control" id="Street Address" />
 			                </div>
 			                <div>Appt.</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Appt." id="Appt." />
+			                    <input type="text" class="form-control" id="Appt." />
 			                </div>
 			                <div>City</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="City" id="City" />
+			                    <input type="text" class="form-control" id="City" />
 			                </div>
 			                <div>State</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="State" id="State"/>
+			                    <input type="text" class="form-control" id="State"/>
 			                </div>
 			                <div>Country</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Country" id="Country" />
+			                    <input type="text" class="form-control" id="Country" />
 			                </div>
 			                <div>Zip</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Zip" id="Zip" />
+			                    <input type="text" class="form-control" id="Zip" />
 			                </div>
 			                <div>Credit Card Name</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" value="Name" id="ccName" />
+			                    <input type="text" class="form-control" id="ccName" />
 			                </div>
 			                <div>Credit Card Number</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" value="Number" id="ccNumber" />
+			                    <input type="text" class="form-control" id="ccNumber" />
 			                </div>
 			                <div>Credit Card Exp. Date</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" value="Exp. Date" id="ccExp. Date" />
+			                    <input type="text" class="form-control" id="ccExp. Date" />
 			                </div>
 			                <div id="warning" class="feedback"></div>
-                            <input type="submit" class="btn btn-success" value="Sign Up!">
+                            <input type="submit" class="btn btn-success" value="Sign Up!" id="submit">
 							<!--id, email, cName, passwd, addrId, ccName, ccNumber, ccExpire
 								id, streetAddr, city, state, country, zip, apptNo -->
 						</form>
@@ -145,19 +145,19 @@
 		 
 		function loginCheck(){
 	        if(document.getElementById('Name').value==""){
-	                elMsg.textContent= "Pleaes enter your name";
+	                elMsg.textContent= "Please enter your name";
 	                document.getElementById('Name').focus();
-	                return false;
-	        }
-	        if(document.getElementById('Password').value==""){
-	              	elMsg.textContent = "Please enter your password";
-	                document.getElementById('Password').focus();
 	                return false;
 	        }
 	        if(document.getElementById('Email').value==""){
 	        	elMsg.textContent = "Please enter your email";
                 document.getElementById('Email').focus();
                 return false;
+	        }
+	        if(document.getElementById('Password').value==""){
+	              	elMsg.textContent = "Please enter your password";
+	                document.getElementById('Password').focus();
+	                return false;
 	        }
 	        if(document.getElementById('Street Address').value==""){
 	        	elMsg.textContent = "Please enter your street address";
