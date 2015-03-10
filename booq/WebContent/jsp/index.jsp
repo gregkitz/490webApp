@@ -97,7 +97,7 @@
         <div>
           <p>booq is an online marketplace for books, manuscripts, and scholarly articles. Please sign up for an account and get booqing!</p> 
           <form class="input-group" id="headerSearch" method="post" >
-            <input type="text" class="form-control" placeholder="Find your booq here" name="search">
+            <input type="text" class="form-control" id="smallSearch" placeholder="Find your booq here" name="search">
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit" name="action" value="search">Go!</button>
             </span>
