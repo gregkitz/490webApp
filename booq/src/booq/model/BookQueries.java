@@ -28,9 +28,9 @@ public class BookQueries {
 	}
 	
 	public static Book getBook(DBConnectionPool connPool, int bookId) {
-		String query = queryBase + "bookId = "
-				+ bookId;
-		return getBooks(connPool, query).remove(0);
+		String query = queryBase + "Book.id = " + bookId;
+		Book bb = getBooks(connPool, query).get(0);
+		return getBooks(connPool, query).get(0);
 	}
 	
 	private static ArrayList<Book> getBooks(DBConnectionPool connPool,
