@@ -48,15 +48,14 @@
           </button>
           <a class="navbar-brand" href="#">booq</a>
         </div>
-        
+       <div id="navbar" class="navbar-collapse collapse">  
         <form class="navbar-form navbar-left" method="post">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Find your booq here" name="search">
         </div>
         <button type="submit" class="btn btn-default" name="action" value="search">Submit</button>
       </form>
-        
-       <br><br>
+        </div>
           
          
           </nav> 
@@ -83,7 +82,7 @@ Book book = (Book) iterator.next();
 <h2> 
 <%while (iterator.hasNext()) {
   book = iterator.next(); %>
-  <a href="/booq/jsp/itemPage.jsp" name="bookResult" value=<%=book.getTitle()%> >
+  <a href="/booq/MainServlet?action=itemDetails" name="bookResult" value=<%=book.getTitle()%> >
   <%=book.getTitle()%>
   </a>
 <br>
