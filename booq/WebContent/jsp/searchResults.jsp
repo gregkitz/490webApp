@@ -75,7 +75,11 @@ connPool = new DBConnectionPool();
 ArrayList<Book> books = connPool.searchBooks(search); 
 Iterator<Book> iterator = books.iterator(); 
 
-Book book = (Book) iterator.next(); 
+Book book; 
+
+if(iterator.hasNext()){
+	book = (Book) iterator.next(); 
+}
 //Book book;
 %>
 <br><br><br>
