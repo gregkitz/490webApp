@@ -93,7 +93,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <img src="pics/booqLogo.png" id="logo" class="col-sm-6 col-md-4">
+        <img src="pics/bookLogo2.png" id="logo" class="col-sm-6 col-md-4">
         <div>
           <p>booq is an online marketplace for books, manuscripts, and scholarly articles. Please sign up for an account and get booqing!</p> 
           <form class="input-group" id="headerSearch" method="post" >

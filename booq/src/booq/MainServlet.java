@@ -66,6 +66,9 @@ public class MainServlet extends HttpServlet {
 	    		url = "/jsp/signup.jsp";
 	    		System.out.println("case is signup"); 
 	    		break;
+	    	case "itemDetails" :
+	    	    url = "/jsp/itemPage.jsp"; 
+	    	    break; 
 	    	case "completeSignup":
 	    		Customer c = new Customer();
 	    		c.setEmail(request.getParameter("Email"));
