@@ -56,7 +56,7 @@ public class MainServlet extends HttpServlet {
         	DBConnectionPool connPool = new DBConnectionPool("jdbc:mysql://127.0.0.1:3306/booqDB", "root", "1234");
         	System.out.println("connection created"); 
     
-		
+		System.out.println("Entering servlet code"); 
 		
 		String url = "/jsp/index.jsp"; //default homepage
 	   HttpSession session = request.getSession(); 
@@ -65,13 +65,17 @@ public class MainServlet extends HttpServlet {
 	    
 	    String action = request.getParameter("action");
 	    if (action != null) {
+	    	System.out.println(action); 
 	    	switch (action) {
 	    	case "signup":
 	    		url = "/jsp/signup.jsp";
+	    		System.out.println("case is signup"); 
 	    		break;
 	    	case "login":
 	    		int custID = SignupQueries.validateCredentials(connPool, request.getParameter("email"), request.getParameter("password"));
+	    		System.out.println("cust id in servlet" + custID); 
 	    		if(custID > 0) {
+	    			System.out.println("case is login"); 
 	       			session.setAttribute("customerID",custID); 
 	    			session.setAttribute("userEmail", request.getParameter("email"));
 	    			
@@ -79,12 +83,20 @@ public class MainServlet extends HttpServlet {
 	    		url = "/jsp/index.jsp";
 	    		break;
 	    	case "search":
+	    		System.out.println("search"); 
 	    		url = "/jsp/searchResults.jsp";
 	    		break;
+	    	default: 
+	    		System.out.println("default"); 
+	    		break; 
 	    
 	    	}
+	    	
 	    }
-		
+	    else {
+    		System.out.println("Action is null"); 
+    	}
+	    System.out.println("Exiting servlet code"); 
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 	    rd.forward(request, response);
 	    } catch (Exception e){ e.printStackTrace();

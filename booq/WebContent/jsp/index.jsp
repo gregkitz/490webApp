@@ -51,28 +51,32 @@
           <%
           HttpSession theSession = request.getSession();
           String email = (String) theSession.getAttribute("userEmail");
+          int custID = (int) theSession.getAttribute("customerID"); 
           
-          
+        //  System.out.println("this is" + meow); 
           //Display username if already logged in 
-          if (email != null) //login value is not null 
+          if (custID > 0) //login value is not null 
           {
         	  %>
         	  Hello <%=email%> 
         	  
         	  <%
         	  }
-          else {
+          if (custID == -1){
+        	  %> Invalid credentials. <% }
+        	  else {
+        	  
         	  %>
+        	  <%=email%>
         	  
-        	  
-          <form class="navbar-form navbar-right" action="login" method="post">
+          <form class="navbar-form navbar-right"  method="post">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control" name="password" required>
             </div>
-            <input type="submit" class="btn btn-success" value="Sign In">
+            <input type="submit" class="btn btn-success" name="action" value="login">
           </form>
           
           <% } %>
