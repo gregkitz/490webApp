@@ -16,6 +16,12 @@ public class SignupQueries {
 		return getIntQuery(connPool, query);
 	}
 	
+	public static int getAddrId(DBConnectionPool connPool, Customer c) {
+		String query = "select id from Address where streetAddr = '"
+				+ c.getStreetAddr() + "' and city = '" + c.getCity() + "'";
+		return getIntQuery(connPool, query);
+	}
+	
 	private static int getIntQuery(DBConnectionPool connPool, String query) {
 		int id = -1;
 		
@@ -43,12 +49,11 @@ public class SignupQueries {
 	public static int insert(DBConnectionPool connPool, Customer c) {
 		int custId = -1;
 		String query1 = "insert into Customer (id, email, cName, passwd,	"
-				+ "addrId, ccName, ccNumber, ccExpire) values ("
+				+ "ccName, ccNumber, ccExpire) values ("
 				+ c.getId() 	  + ", "
 				+ c.getEmail()    + ", "
 				+ c.getcName()    + ", "
 				+ c.getPasswd()   + ", "
-				+ c.getAddrId()   + ", "
 				+ c.getCcName()	  + ", "
 				+ c.getCcNumber() + ", "
 				+ c.getCcExpire() + ")";
@@ -63,6 +68,8 @@ public class SignupQueries {
 				+ c.getApptNo() 	+ ")";
 		String query3 = "select id from Customer where email = '" + c.getEmail()
 				+ "' and passwd = '" + c.getPasswd() + "'";
+		String query4 = "select id from Address where streetAddr = '"
+				+ c.getStreetAddr() + "' and city = '" + c.getCity() + "'";
 		
 		try {
 			Connection conn = null;
@@ -75,19 +82,17 @@ public class SignupQueries {
 				s.executeUpdate(query1);
 				s.executeUpdate(query2);
 				custId = s.executeUpdate(query3);
+				
+				//link customer to address
+				ResultSet rs = s.executeQuery(query4);
+				String query5 = "insert into Customer (addrId) values (" + rs.getInt(1) + ")";
+				s.executeUpdate(query5);
+				
 				s.close();
 			}
 			connPool.closeAll();
 		} catch (SQLException e) { e.printStackTrace(); }
 		
 		return custId;
-	}
-	
-	public static int getAddrId(DBConnectionPool connPool) {
-		int addrId = -1;
-		
-		
-		
-		return addrId;
 	}
 }

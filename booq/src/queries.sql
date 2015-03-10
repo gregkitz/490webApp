@@ -15,3 +15,7 @@ select bookId, customerId, ratingDate, rating, description
 	where bookId = 5;
 
 select id from Customer where email = '4tehlulz' and passwd = 'gregor';
+
+select * from Customer;
+
+select * from Address inner join Customer on Customer.addrId = Address.id;
