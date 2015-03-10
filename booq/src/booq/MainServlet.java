@@ -60,6 +60,7 @@ public class MainServlet extends HttpServlet {
 	    String action = request.getParameter("action");
 	    if (action != null) {
 	    	System.out.println(action); 
+	    	int custID;
 	    	switch (action) {
 	    	case "signup":
 	    		url = "/jsp/signup.jsp";
@@ -80,15 +81,21 @@ public class MainServlet extends HttpServlet {
 	    		c.setZip(request.getParameter("Zip"));
 	    		c.setApptNo(request.getParameter("Appt."));
 	    		
-	    		SignupQueries.insert(connPool, c);
+	    		custID = SignupQueries.insert(connPool, c);
+	    		if(custID > 0) {
+	    			String custIDstring = Integer.toString(custID); 
+	    			System.out.println("case is login"); 
+	       			session.setAttribute("customerIDstring",custIDstring); 
+	    			session.setAttribute("userEmail", request.getParameter("Email"));
+	    		}
 	    		url = "/jsp/index.jsp";
 	    		break;
 	    	case "login":
-	    		int custID = SignupQueries.validateCredentials(connPool, request.getParameter("email"), request.getParameter("password"));
+	    		custID = SignupQueries.validateCredentials(connPool, request.getParameter("email"), request.getParameter("password"));
 	    		
-	    		String custIDstring = Integer.toString(custID); 
 	    		System.out.println("cust id in servlet" + custID); 
 	    		if(custID > 0) {
+	    			String custIDstring = Integer.toString(custID);
 	    			System.out.println("case is login"); 
 	       			session.setAttribute("customerIDstring",custIDstring); 
 	    			session.setAttribute("userEmail", request.getParameter("email"));
@@ -113,7 +120,6 @@ public class MainServlet extends HttpServlet {
 	    System.out.println("Exiting servlet code"); 
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 	    rd.forward(request, response);
-	    } catch (Exception e){ e.printStackTrace();
-	}
+	    } catch (Exception e){ e.printStackTrace();	}
 	}
 }

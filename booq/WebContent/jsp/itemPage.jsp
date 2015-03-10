@@ -14,16 +14,16 @@
    <title>booq!</title>
 
    <!-- Bootstrap core CSS -->
-   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link href="../css/bootstrap.min.css" rel="stylesheet">
 
    <!-- Custom styles for this template -->
    <link href="jumbotron.css" rel="stylesheet">
-   <link href="css/small-business.css" rel="stylesheet">
-   <link href="css/custom.css" rel="stylesheet">
+   <link href="../css/small-business.css" rel="stylesheet">
+   <link href="../css/custom.css" rel="stylesheet">
 
    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-   <script src="js/ie-emulation-modes-warning.js"></script>
+   <script src="../js/ie-emulation-modes-warning.js"></script>
 
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!--[if lt IE 9]>
@@ -129,10 +129,10 @@
   <!-- /.container -->
 
   <!-- jQuery -->
-  <script src="js/jquery.js"></script>
+  <script src="../js/jquery.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
   
 </body>
