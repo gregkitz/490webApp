@@ -17,6 +17,7 @@ create table Book (
 	genreId int,
 	stock int,
 	description nvarchar(1000),
+	picturePath nvarchar(100),
 
 	primary key(id),
 	foreign key(genreId) references Genre(id)

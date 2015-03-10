@@ -11,7 +11,7 @@ import booq.beans.Book;
 public class BookQueries {
 	private static final String queryBase =
 		"select Book.id, title, author, price, stock, "
-		+ "genreName, genreId, description from Book inner join Genre on "
+		+ "genreName, genreId, description, picturePath from Book inner join Genre on "
 		+ "Book.genreId = Genre.id where ";
 	
 	public static ArrayList<Book> searchBooks(DBConnectionPool connPool,
@@ -55,6 +55,7 @@ public class BookQueries {
 		              book.setGenreName(rs.getString(6));
 		              book.setGenreId(rs.getInt(7));
 		              book.setDescription(rs.getString(8));
+		              book.setPicturePath(rs.getString(9)); 
 		              books.add(book);
 				}
 				rs.close();
