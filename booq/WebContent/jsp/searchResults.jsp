@@ -86,7 +86,7 @@ if(iterator.hasNext()){
 <h2> 
 <%while (iterator.hasNext()) {
   book = iterator.next(); %>
-  <a href="/booq/MainServlet?action=itemDetails" name="bookResult" value=<%=book.getTitle()%> >
+  <a href="/booq/MainServlet?action=itemDetails" name="bookResult" value=<%=book.getId()%> >
   <%=book.getTitle()%>
   </a>
 <br>

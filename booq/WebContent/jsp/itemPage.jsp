@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="booq.beans.Book"%>  
+    <%@page import="booq.model.DBConnectionPool"%>  
+<!--<jsp:useBean id="connPool" scope="application"
+  class="booq.model.DBConnectionPool"/>-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,6 +36,18 @@
    <![endif]-->
 </head>
 <body>
+
+<%
+
+connPool = new DBConnectionPool();
+String bookID = (String) request.getAttribute("bookResult"); 
+Book book = connPool.getBookDetails(1);
+if( connPool.getBookDetails(Integer.parseInt(bookID)) != null){
+	book = connPool.getBookDetails(Integer.parseInt(bookID));
+}
+//book.getPicturePath(); 
+%>
+
 <%System.out.println("Action = " + request.getParameter("action")); %>
 <% //request.setParameter("action", "search"); %>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -62,7 +78,7 @@
     <!-- Heading Row -->
     <div class="row">
       <div class="col-md-8">
-          <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+          <img class="img-responsive img-rounded" src=<%=book.getPicturePath() %> alt="">
       </div>
       <!-- /.col-md-8 -->
       <div class="col-md-4">
