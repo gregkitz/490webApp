@@ -48,6 +48,23 @@
           <form class="navbar-form navbar-right" action="signup">
             <input type="submit" class="btn btn-success" value="Sign up">
           </form>
+          <%
+          HttpSession theSession = request.getSession();
+          String email = (String) theSession.getAttribute("userEmail");
+          
+          
+          //Display username if already logged in 
+          if (email != null) //login value is not null 
+          {
+        	  %>
+        	  Hello <%=email%> 
+        	  
+        	  <%
+        	  }
+          else {
+        	  %>
+        	  
+        	  
           <form class="navbar-form navbar-right" action="login" method="post">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control" name="email" required>
@@ -58,6 +75,7 @@
             <input type="submit" class="btn btn-success" value="Sign In">
           </form>
           
+          <% } %>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
