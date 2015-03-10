@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.Session;
-
+import booq.beans.Customer;
 import booq.model.DBConnectionPool;
 import booq.model.SignupQueries;
 
@@ -34,10 +32,6 @@ public class MainServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         System.out.println("*** initializing controller servlet.");
         super.init(config);
-        
-        String url = config.getInitParameter("dbUrl");
-        String username = config.getInitParameter("username");
-        String passwd = config.getInitParameter("password");
         
 //        try {
 //        	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
@@ -70,6 +64,24 @@ public class MainServlet extends HttpServlet {
 	    	case "signup":
 	    		url = "/jsp/signup.jsp";
 	    		System.out.println("case is signup"); 
+	    		break;
+	    	case "completeSignup":
+	    		Customer c = new Customer();
+	    		c.setEmail(request.getParameter("Email"));
+	    		c.setcName(request.getParameter("Name"));
+	    		c.setPasswd(request.getParameter("Password"));
+	    		c.setCcName(request.getParameter("ccName"));
+	    		c.setCcNumber(request.getParameter("ccNumber"));
+	    		c.setCcExpire(request.getParameter("ccExp. Date"));
+	    		c.setStreetAddr(request.getParameter("Street Address"));
+	    		c.setCity(request.getParameter("City"));
+	    		c.setState(request.getParameter("State"));
+	    		c.setCountry(request.getParameter("Country"));
+	    		c.setZip(request.getParameter("Zip"));
+	    		c.setApptNo(request.getParameter("Appt."));
+	    		
+	    		SignupQueries.insert(connPool, c);
+	    		url = "/jsp/index.jsp";
 	    		break;
 	    	case "login":
 	    		int custID = SignupQueries.validateCredentials(connPool, request.getParameter("email"), request.getParameter("password"));

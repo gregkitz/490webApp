@@ -36,7 +36,7 @@ public class Customer {
     public void setEmail(String email)		 { this.email = email; }
     public void setPasswd(String passwd)	 { this.passwd = passwd; }
     public void setAddrId(int addrId)  		 { this.addrId = addrId; }
-    public void setStAddr(String stAddr) 	 { this.stAddr = stAddr; }
+    public void setStreetAddr(String stAddr) 	 { this.stAddr = stAddr; }
     public void setCity(String city) 		 { this.city = city; }
     public void setState(String state) 		 { this.state = state; }
     public void setCountry(String country) 	 { this.country = country; }

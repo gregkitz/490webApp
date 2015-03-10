@@ -67,67 +67,68 @@
               			<strong>   Sign Up! </strong>  
             		</div>
                     <div class="panel-body">
-                      	<form action = "completeSignup">
+                      	<form action = "completeSignup" method="post">
 	                        <div>Your Name</div>
 	                        <div class="form-group input-group">
 	                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-	                            <input type="text" class="form-control" value="Name" />
+	                            <input type="text" class="form-control" value="Name" id="Name" />
 	                        </div>
                             <div>Email</div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" value="Email" />
+                                <input type="text" class="form-control" value="Email" id="Email" />
                             </div>
                             <div>Password</div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                <input type="password" class="form-control" />
+                                <input type="password" class="form-control" id="Password" />
                             </div>
                             <div>Street Address</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Street Address" />
+			                    <input type="text" class="form-control" value="Street Address" id="Street Address" />
 			                </div>
 			                <div>Appt.</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Appt." />
+			                    <input type="text" class="form-control" value="Appt." id="Appt." />
 			                </div>
 			                <div>City</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="City" />
+			                    <input type="text" class="form-control" value="City" id="City" />
 			                </div>
 			                <div>State</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="State" />
+			                    <input type="text" class="form-control" value="State" id="State"/>
 			                </div>
 			                <div>Country</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Country" />
+			                    <input type="text" class="form-control" value="Country" id="Country" />
 			                </div>
 			                <div>Zip</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" value="Zip" />
+			                    <input type="text" class="form-control" value="Zip" id="Zip" />
 			                </div>
 			                <div>Credit Card Name</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" value="Name" />
+			                    <input type="text" class="form-control" value="Name" id="ccName" />
 			                </div>
 			                <div>Credit Card Number</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" value="Number" />
+			                    <input type="text" class="form-control" value="Number" id="ccNumber" />
 			                </div>
 			                <div>Credit Card Exp. Date</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" value="Exp. Date" />
+			                    <input type="text" class="form-control" value="Exp. Date" id="ccExp. Date" />
 			                </div>
+			                <div id="warning" class="feedback"></div>
                             <input type="submit" class="btn btn-success" value="Sign Up!">
 							<!--id, email, cName, passwd, addrId, ccName, ccNumber, ccExpire
 								id, streetAddr, city, state, country, zip, apptNo -->
@@ -137,6 +138,72 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- Validation Check -->
+	<script>
+   		var elMsg = document.getElementById('warning');
+		 
+		function loginCheck(){
+	        if(document.getElementById('Name').value==""){
+	                elMsg.textContent= "Pleaes enter your name";
+	                document.getElementById('Name').focus();
+	                return false;
+	        }
+	        if(document.getElementById('Password').value==""){
+	              	elMsg.textContent = "Please enter your password";
+	                document.getElementById('Password').focus();
+	                return false;
+	        }
+	        if(document.getElementById('Email').value==""){
+	        	elMsg.textContent = "Please enter your email";
+                document.getElementById('Email').focus();
+                return false;
+	        }
+	        if(document.getElementById('Street Address').value==""){
+	        	elMsg.textContent = "Please enter your street address";
+                document.getElementById('Street Address').focus();
+                return false;
+	        }
+	        if(document.getElementById('City').value==""){
+	        	elMsg.textContent = "Please enter your city";
+                document.getElementById('City').focus();
+                return false;
+	        }
+	        if(document.getElementById('State').value==""){
+	        	elMsg.textContent = "Please enter your state";
+                document.getElementById('State').focus();
+                return false;
+	        }
+	        if(document.getElementById('Country').value==""){
+	        	elMsg.textContent = "Please enter your country";
+                document.getElementById('Country').focus();
+                return false;
+	        }
+	        if(document.getElementById('Zip').value==""){
+	        	elMsg.textContent = "Please enter your zip";
+                document.getElementById('Zip').focus();
+                return false;
+	        }
+	        if(document.getElementById('ccName').value==""){
+	        	elMsg.textContent = "Please enter your credit card name";
+                document.getElementById('ccName').focus();
+                return false;
+	        }
+	        if(document.getElementById('ccNumber').value==""){
+	        	elMsg.textContent = "Please enter your credit card number";
+                document.getElementById('ccNumber').focus();
+                return false;
+	        }
+	        if(document.getElementById('ccExp. Date').value==""){
+	        	elMsg.textContent = "Please enter your credit card expiration date";
+                document.getElementById('ccExp. Date').focus();
+                return false;
+	        }
+		}
+		
+		var elSubmit = document.getElementById('submit');
+		elSubmit.onclick =loginCheck;
+	</script>
 
     <!-- CORE JQUERY  -->
     <script src="../js/jquery.js"></script>
