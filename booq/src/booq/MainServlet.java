@@ -33,7 +33,7 @@ public class MainServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         System.out.println("*** initializing controller servlet.");
         super.init(config);
-        
+         
 //        try {
 //        	DBConnectionPool connPool = new DBConnectionPool(url, username, passwd);
 //        	System.out.println("connection created"); 

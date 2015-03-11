@@ -41,7 +41,7 @@
               			<strong>   Sign Up! </strong>  
             		</div>
                     <div class="panel-body">
-                      	<form method="post">
+                      	<form method="post" action="/booq/MainServlet?action=completeSignup">
 	                        <div>Your Name</div>
 	                        <div class="form-group input-group">
 	                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
@@ -103,7 +103,7 @@
 			                    <input type="text" class="form-control" name="ccExp. Date" id="ccExp. Date" />
 			                </div>
 			                <div id="warning" class="feedback"></div>
-                            <input type="submit" class="btn btn-success" name="action" value="completeSignup" id="submit">
+                            <input type="submit" class="btn btn-success" name="action" value="complete signup" id="submit">
 							<!--id, email, cName, passwd, addrId, ccName, ccNumber, ccExpire
 								id, streetAddr, city, state, country, zip, apptNo -->
 						</form>
