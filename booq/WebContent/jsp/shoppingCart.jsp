@@ -54,14 +54,18 @@ connPool = new DBConnectionPool();
 
 
 String cartAction = request.getParameter("cartAction");
-int bookID = -1; 
-bookID = Integer.parseInt(request.getParameter("bookID"));
-
+int bookID = -1;  
+if (request.getParameter("bookID") != null){
+	bookID = Integer.parseInt(request.getParameter("bookID"));
+}
 Book bookToInsert = null;
 if (bookID > 0 ){
  bookToInsert = connPool.getBookDetails(bookID);
 }
-int quantity = Integer.parseInt(request.getParameter("quantity")); 
+int quantity = -1; 
+if (request.getParameter("quantity") != null){
+Integer.parseInt(request.getParameter("quantity")); 
+}
 if (cartAction != null){
 switch (cartAction) {
 	case "addItem" : 
@@ -75,6 +79,7 @@ switch (cartAction) {
 		break; 
 }
 }
+System.out.println("cart should print here"); 
    if(session.getAttribute("cart") != null){ 
 	   ArrayList<CartItem> theShoppingCart = (ArrayList<CartItem>) session.getAttribute("cart"); 
 	   Iterator<CartItem> iterator = theShoppingCart.iterator(); 
