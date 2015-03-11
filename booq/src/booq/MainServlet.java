@@ -53,7 +53,7 @@ public class MainServlet extends HttpServlet {
     
 		System.out.println("Entering servlet code"); 
 		
-		String url = "/jsp/index.jsp"; //default homepage
+		String url = "/jsp/index1.jsp"; //default homepage
 	   HttpSession session = request.getSession(); 
 	   String productCode = "bookTest"; 
 	   session.setAttribute("productCode", productCode); 
@@ -95,7 +95,7 @@ public class MainServlet extends HttpServlet {
 	       			session.setAttribute("customerIDstring",custIDstring); 
 	    			session.setAttribute("userEmail", request.getParameter("Email"));
 	    		}
-	    		url = "/jsp/index.jsp";
+	    		url = "/jsp/index1.jsp";
 	    		break;
 	    	case "login":
 	    		custID = SignupQueries.validateCredentials(connPool, request.getParameter("email"), request.getParameter("password"));
