@@ -63,13 +63,14 @@ Book bookToInsert = null;
 if (bookID > 0 ){
  bookToInsert = connPool.getBookDetails(bookID);
 }
-int quantity = -1; 
-if (request.getParameter("quantity") != null){
-Integer.parseInt(request.getParameter("quantity")); 
-}
+
 if (cartAction != null){
 switch (cartAction) {
 	case "addItem" : 
+		int quantity = -1; 
+		if (request.getParameter("quantity") != null){
+		quantity = Integer.parseInt(request.getParameter("quantity")); 
+		}
 		CartItem purchaseInsert = new CartItem(quantity, bookToInsert); 
 		System.out.println("From cart:" + quantity + bookToInsert.getId());
 		ArrayList<CartItem> theShoppingCart = (ArrayList<CartItem>) session.getAttribute("cart"); 
@@ -94,10 +95,10 @@ System.out.println("cart should print here");
 	   }
 	   while(iterator.hasNext()){
 		   item = (CartItem) iterator.next();
-		   %><%=item.getBook().getTitle()%><br>
+		   %><h3><%=item.getBook().getTitle()%></h3>$
 		   <%=item.getBook().getPrice() %><br>
-		   <%=item.getQuantity() %><br>
-		   Subtotal: <%=item.getBook().getPrice() * item.getQuantity() %>
+		   Quantity: <%=item.getQuantity() %><br>
+		   <b>Subtotal: $<%=item.getBook().getPrice() * item.getQuantity() %></b>
 		   
 		   <%
 				   //price 
@@ -105,7 +106,7 @@ System.out.println("cart should print here");
 				   runningTotal += (item.getBook().getPrice()) * (item.getQuantity()); 
 	   }
 	   
-	   %>Total:<%=runningTotal %><%
+	   %><b>Total:$<%=runningTotal %></b><%
    }
 
 %>
