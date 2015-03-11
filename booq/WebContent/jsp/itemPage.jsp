@@ -4,6 +4,7 @@
     <%@page import="booq.model.DBConnectionPool"%>  
 <!--<jsp:useBean id="connPool" scope="application"
   class="booq.model.DBConnectionPool"/>-->
+  <jsp:include page="navBar.jsp" flush="true"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,8 +41,9 @@
 <%
 
 connPool = new DBConnectionPool();
-String bookID = (String) request.getAttribute("bookResult"); 
-Book book = connPool.getBookDetails(1);
+String bookID = (String) request.getParameter("bookResult"); 
+System.out.println("This is the book ID: " + bookID); 
+Book book = new Book();
 if( connPool.getBookDetails(Integer.parseInt(bookID)) != null){
 	book = connPool.getBookDetails(Integer.parseInt(bookID));
 }
@@ -50,6 +52,7 @@ if( connPool.getBookDetails(Integer.parseInt(bookID)) != null){
 
 <%System.out.println("Action = " + request.getParameter("action")); %>
 <% //request.setParameter("action", "search"); %>
+ <!-- 
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -69,7 +72,7 @@ if( connPool.getBookDetails(Integer.parseInt(bookID)) != null){
         <button type="submit" class="btn btn-default" name="action" value="search">Submit</button>
       </form>
         </div>
-        </nav>
+        </nav> -->
   
   <!-- Page Content -->
   
