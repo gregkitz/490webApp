@@ -1,7 +1,10 @@
 use booqDB;
 
-insert into Customer(email, passwd) values
-('john@gmail.com', '1234');
+insert into Address (streetAddr, city, state, country, zip, apptNo) values
+  ('2345 88th St', 'Bothell', 'Washington', 'US of A', '90256', null);
+
+insert into Customer (email, cName, passwd, ccName, ccNumber, ccExpire, addrId) values
+  ('john@gmail.com', 'John', '1234', 'John Snow', '555555555', 'never', 1);
 
 
 insert into Genre(id, genreName) values
@@ -34,7 +37,10 @@ insert into Book(id, title, author, price, genreId, stock, picturePath) values
   (12, 'Robots', 'Henry XVI', 8.95, 12, 2, 'pics/book12'),
   (13, 'Thriller', 'Michael Jackson', 8.95, 13, 1, 'pics/book13'),
   (14, '50 Layers of Skin', 'Greg Kitzmiller', 20.01, 11, 14, 'pics/book14'),
-  (15, 'Working with Greg:  My Trials', 'Luke Selbeck', 5.00, 8, 7, 'pics/book15');
+  (15, 'Working with Greg:  My Trials', 'Luke Selbeck', 5.00, 8, 7, 'pics/book15'),
+  (16, 'Who\'s the Better Worker?', 'Luke Selbeck', 7.00, 9, 3, 'pics/book16'),
+  (17, 'That Time I did the thing', 'David Bowie', 21.76, 3, 3, 'pics/book17'),
+  (18, 'Etymology of Linux', 'Dallas van Ess', 1.99, 10, 8, 'pics/book18');
 
 insert into Ratings(bookId, customerId, ratingDate, rating) values
   (1, 1, '2015-02-12', 4),

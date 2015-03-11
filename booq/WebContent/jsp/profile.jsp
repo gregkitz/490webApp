@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="booq.beans.Customer" %>
-<%@ page import="booq.model.SignupQueries" %>
 <%@page import="booq.model.DBConnectionPool"%>
 <jsp:useBean id="connPool" scope="application" class="booq.model.DBConnectionPool"/>
 <html>
@@ -14,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>Profile</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,22 +35,23 @@
 </head>
 
 <%
-	HttpSession theSession = request.getSession();
+	//HttpSession theSession = request.getSession();
 	String email = (String) session.getAttribute("userEmail");
 	String custIDstring = (String) session.getAttribute("customerIDstring"); 
 	int custID = -2; 
 	if(custIDstring != null) { 
-		custID = Integer.parseInt(custIDstring); 
+		custID = Integer.parseInt(custIDstring);
 		System.out.println("cust id in jsp" + custID); 
 	}
 	//Display if already logged in 
 	Customer c;
 	if (custID > 0) //login value is not null 
 	{
+		System.out.println("making customer object " + custID);
 		connPool = new DBConnectionPool();
 		c = connPool.getCustomer(custID);
 %>
-	<h2><%=c.getName()%></h2>
+	<h2><%=c.getcName()%></h2>
 	
 <%
 }
