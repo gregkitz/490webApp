@@ -83,25 +83,33 @@ if(iterator.hasNext()){
 //Book book;
 %>
 <br><br><br>
-<h2> 
-<%while (iterator.hasNext()) {
-  book = iterator.next(); %>
-  <a href="/booq/MainServlet?action=itemDetails" name="bookResult" value=<%=book.getId()%> >
-  <%=book.getTitle()%>
-  </a>
-<br>
-<%=book.getAuthor() %>
-<br>
-<%=book.getPrice() %>
-<br>
-<%=book.getDescription()%> 
-<br> <br>
- 
-<% }
 
-} %>
 
-</h2>
+<div class="container">
+	<div class="row">
+		
+		<%while (iterator.hasNext()) {
+		  book = iterator.next(); %>
+		  
+		<h3> 
+		  <a href="/booq/MainServlet?action=itemDetails" name="bookResult" value=<%=book.getId()%> >
+		  	<%=book.getTitle()%>
+		  </a>
+		</h3>
+		<p>
+		<%=book.getAuthor() %>
+		<br>
+		<%=book.getPrice() %>
+		<br>
+		<%=book.getDescription()%> 
+		<br><hr>
+		 
+		<% }
+		
+		} %>
+		</p>
+	</div>
+</div>
 
  <!-- Bootstrap core JavaScript
     ================================================== -->
