@@ -82,6 +82,7 @@ switch (cartAction) {
 }
 System.out.println("cart should print here"); 
    if(session.getAttribute("cart") != null){ 
+	   double runningTotal = 0; 
 	   ArrayList<CartItem> theShoppingCart = (ArrayList<CartItem>) session.getAttribute("cart"); 
 	   Iterator<CartItem> iterator = theShoppingCart.iterator(); 
 	   CartItem item = null; 
@@ -93,10 +94,18 @@ System.out.println("cart should print here");
 	   }
 	   while(iterator.hasNext()){
 		   item = (CartItem) iterator.next();
-		   %><%=item.getBook().getTitle()%><%
+		   %><%=item.getBook().getTitle()%><br>
+		   <%=item.getBook().getPrice() %><br>
+		   <%=item.getQuantity() %><br>
+		   Subtotal: <%=item.getBook().getPrice() * item.getQuantity() %>
+		   
+		   <%
+				   //price 
+				   //quantity 
+				   runningTotal += (item.getBook().getPrice()) * (item.getQuantity()); 
 	   }
 	   
-	   
+	   %>Total:<%=runningTotal %><%
    }
 
 %>
