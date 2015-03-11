@@ -66,6 +66,9 @@ public class MainServlet extends HttpServlet {
 	    	case "browse": 
 	    		url = "/jsp/browse.jsp";
 	    		break; 
+	    	case "test":
+	    		url = "/jsp/test.jsp";
+	    		break;
 	    	case "signup":
 	    		url = "/jsp/signup.jsp";
 	    		System.out.println("case is signup"); 

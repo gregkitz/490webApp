@@ -8,6 +8,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <link rel="stylesheet"  href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/star-rating.min.js" type="text/javascript"></script>
    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +40,8 @@
    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
    <![endif]-->
+   
+  
 </head>
 <body>
 
@@ -77,7 +84,6 @@ System.out.println(book.getPicturePath());
   
   <!-- Page Content -->
   
-  
   <div class="container">
     <!-- Heading Row -->
     <div class="row">
@@ -88,7 +94,11 @@ System.out.println(book.getPicturePath());
       <div class="col-md-4">
         <h1><%=book.getTitle()%></h1>
         <p><%=book.getDescription() %></p>
-        <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
+        <a class="btn btn-primary btn-lg" href="#">Call to Purchase!</a><br>
+        <form method="GET" ">
+  <input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
+  <input type="submit">
+  </form>
       </div>
       <!-- /.col-md-4 -->
     </div>
@@ -146,6 +156,56 @@ System.out.println(book.getPicturePath());
   <script src="js/jquery.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
+  <script>
+    jQuery(document).ready(function () {
+        $("#input-21f").rating({
+            starCaptions: function(val) {
+                if (val < 3) {
+                    return val;
+                } else {
+                    return 'high';
+                }
+            },
+            starCaptionClasses: function(val) {
+                if (val < 3) {
+                    return 'label label-danger';
+                } else {
+                    return 'label label-success';
+                }
+            },
+            hoverOnClear: false
+        });
+        
+        $('#rating-input').rating({
+              min: 0,
+              max: 5,
+              step: 1,
+              size: 'lg'
+           });
+           
+        $('#btn-rating-input').on('click', function() {
+            var $a = self.$element.closest('.star-rating');
+            var chk = !$a.hasClass('rating-disabled');
+            $('#rating-input').rating('refresh', {showClear:!chk, disabled:chk});
+        });
+        
+        
+        $('.btn-danger').on('click', function() {
+            $("#kartik").rating('destroy');
+        });
+        
+        $('.btn-success').on('click', function() {
+            $("#kartik").rating('create');
+        });
+        
+        $('#input-21d').on('rating.change', function(event, value) {
+           console.log(value); 
+        });
+        
+        
+        $('.rb-rating').rating({'showCaption':true, 'stars':'3', 'min':'0', 'max':'3', 'step':'1', 'size':'xs', 'starCaptions': {0:'status:nix', 1:'status:wackelt', 2:'status:geht', 3:'status:laeuft'}});
+    });
+</script>
   <script src="js/bootstrap.min.js"></script>
 
   
