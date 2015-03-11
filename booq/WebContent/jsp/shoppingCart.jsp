@@ -46,6 +46,7 @@
    
 </head>
 <body>
+<jsp:include page="navBar.jsp" flush="true"/>
 <%
 //grab the passed parameters and save them to local variables
 
