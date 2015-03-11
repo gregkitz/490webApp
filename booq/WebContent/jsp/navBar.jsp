@@ -76,7 +76,7 @@
        <div id="navbar" class="navbar-collapse collapse">  
         <form class="navbar-form navbar-left" method="post" action="/booq/MainServlet?action=search">
         <div class="form-group">
-          
+          <a href="/booq/MainServlet?action=cart"><img src="img/logo-big-shopping.png" width="50" height="50"> </a>
           <!-- Single button -->
 <div class="btn-group">
   <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <link rel="stylesheet"  href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -94,7 +94,36 @@ System.out.println(book.getPicturePath());
       <div class="col-md-4">
         <h1><%=book.getTitle()%></h1>
         <p><%=book.getDescription() %></p>
-        <a class="btn btn-primary btn-lg" href="#">Call to Purchase!</a><br>
+  
+  
+  <!-- QUANTITY SELECTION BOX  -->
+        <div class="container">
+  <h2>Form control: select</h2>
+  <p>The form below contains two dropdown menus (select lists):</p>
+  <form role="form">
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <br>
+      <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
+      <select multiple class="form-control" id="sel2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </form>
+</div>
+
+<!--  END QUANTITY SELECTION BOX  -->
+        <a class="btn btn-primary btn-lg" href="/booq/MainServlet?action=cart&cartAction=addItem&bookID=<%=book.getId()%>">Call to Purchase!</a><br>
         <form method="GET" ">
   <input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
   <input type="submit">

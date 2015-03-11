@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="booq.beans.CartItem"%> 
+    <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +35,16 @@
 </head>
 
 <body>
+
+<% //putting the cart in session if it's not there already 
+ArrayList<CartItem> shoppingCart  = new ArrayList<CartItem>(); 
+if (session.getAttribute("cart") == null){
+	session.setAttribute("cart", shoppingCart); 
+}
+
+
+
+%>
 
     <!-- Navigation -->
 <jsp:include page="navBar.jsp" flush="true"/>

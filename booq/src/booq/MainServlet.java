@@ -6,6 +6,7 @@
 package booq;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import booq.beans.CartItem;
 import booq.beans.Customer;
 import booq.model.DBConnectionPool;
 import booq.model.SignupQueries;
@@ -66,6 +68,9 @@ public class MainServlet extends HttpServlet {
 	    	case "browse": 
 	    		url = "/jsp/browse.jsp";
 	    		break; 
+	    	case "cart": 
+	    		url = "/jsp/shoppingCart.jsp";
+	    		break;
 	    	case "test":
 	    		url = "/jsp/test.jsp";
 	    		break;
