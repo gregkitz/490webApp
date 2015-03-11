@@ -58,6 +58,9 @@ Book book;
 
 if(iterator.hasNext()){
 	book = (Book) iterator.next(); 
+} 
+else {
+%>	<br><br><br><h3>No results found!</h3><%
 }
 //Book book;
 %>

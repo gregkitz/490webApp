@@ -14,6 +14,9 @@
 <title>Browse books</title>
 </head>
 <body>
+
+<jsp:include page="navBar.jsp" flush="true"/>
+
 <% 
 connPool = new DBConnectionPool();
 
@@ -33,7 +36,8 @@ Genre theGenre;
 
 while (iterator.hasNext()) {
  theGenre  = iterator.next(); %>
-<br><%=theGenre.getId() %> <%=theGenre.getName() %> <br>
+<br><a href="/booq/MainServlet?action=search&search=<%=theGenre.getName() %>" >
+<%=theGenre.getId() %> <%=theGenre.getName() %> </a><br>
 
 <% }
 
