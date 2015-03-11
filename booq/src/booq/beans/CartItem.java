@@ -4,6 +4,14 @@ public class CartItem {
 	private int id;
 	private Book book;
 	private int  quantity;
+	
+	//constructor
+	public CartItem (int quantity, Book book){
+		if (book != null){
+			this.book = book; 
+		}
+		this.quantity = quantity; 
+	}
 
 	//getters
 	public int 	    getId() 		{ return id; }

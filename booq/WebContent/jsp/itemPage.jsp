@@ -60,27 +60,7 @@ System.out.println(book.getPicturePath());
 
 <%System.out.println("Action = " + request.getParameter("action")); %>
 <% //request.setParameter("action", "search"); %>
- <!-- 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">booq</a>
-        </div>
-       <div id="navbar" class="navbar-collapse collapse">  
-        <form class="navbar-form navbar-left" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Find your booq here" name="search"> 
-        </div>
-        <button type="submit" class="btn btn-default" name="action" value="search">Submit</button>
-      </form>
-        </div>
-        </nav> -->
+ 
   
   <!-- Page Content -->
   
@@ -98,32 +78,27 @@ System.out.println(book.getPicturePath());
   
   <!-- QUANTITY SELECTION BOX  -->
         <div class="container">
-  <h2>Form control: select</h2>
-  <p>The form below contains two dropdown menus (select lists):</p>
-  <form role="form">
+  
+  <form style="width:150px" action="/booq/MainServlet?action=login">
     <div class="form-group">
-      <label for="sel1">Select list (select one):</label>
-      <select class="form-control" id="sel1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+      
+      <select class="form-control" id="sel1" style="width:50px" name="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
       </select>
       <br>
-      <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
-      <select multiple class="form-control" id="sel2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <input type="hidden" name="action" value="cart"> 
+      <input  class="btn btn-primary btn-lg" type = "submit" value="Add item to cart">
+      <input type="hidden" name="cartAction" value="addItem"> 
+      <input type="hidden" name="bookID" value="<%=book.getId() %>">
     </div>
   </form>
 </div>
 
 <!--  END QUANTITY SELECTION BOX  -->
-        <a class="btn btn-primary btn-lg" href="/booq/MainServlet?action=cart&cartAction=addItem&bookID=<%=book.getId()%>">Call to Purchase!</a><br>
+      <br>
         <form method="GET" ">
   <input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
   <input type="submit">
