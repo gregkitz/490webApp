@@ -103,7 +103,7 @@
          	  %> Invalid credentials. <% }
  %>
         	 <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" method="post">
+          <form class="navbar-form navbar-right" method="post" action="/booq/MainServlet?action=signup">
             <input type="submit" class="btn btn-success" name="action" value="signup">
           </form>
         	  
