@@ -48,6 +48,7 @@ if( connPool.getBookDetails(Integer.parseInt(bookID)) != null){
 	book = connPool.getBookDetails(Integer.parseInt(bookID));
 }
 //book.getPicturePath(); 
+System.out.println(book.getPicturePath()); 
 %>
 
 <%System.out.println("Action = " + request.getParameter("action")); %>
