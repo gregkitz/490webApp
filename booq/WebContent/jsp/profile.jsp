@@ -19,7 +19,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />   
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -33,6 +33,8 @@
     <![endif]-->
 
 </head>
+
+<jsp:include page="navBar.jsp" flush="true"/>
 
 <%
 	//HttpSession theSession = request.getSession();
@@ -50,8 +52,50 @@
 		System.out.println("making customer object " + custID);
 		connPool = new DBConnectionPool();
 		c = connPool.getCustomer(custID);
+		String apptNo = c.getApptNo();
 %>
-	<h2><%=c.getcName()%></h2>
+	<br><br><br>
+	
+	<div class="container">
+        <div class="row pad-top ">
+            <div class="col-md-12">
+                <h2>Your Profile</h2>
+            </div>
+        </div>
+        <div class="row  pad-top">
+           	<div class="panel panel-default">
+         		<div class="panel-heading">
+           			<strong><%=c.getcName()%></strong>  
+         		</div>
+                <div class="panel-body">
+                    	<div class="col-md-6 col-sm-8 col-xs-10">
+                       		<div>
+                       			<strong>Name: </strong><br><%=c.getcName()%>
+                       		</div>
+                       		<br>
+                       		<div>
+                       			<strong>Email: </strong><br><%=c.getEmail()%>
+                       		</div>
+                       		<br>
+                       		<div>
+                       			<strong>Address: </strong> <br>
+                       				<%=c.getStreetAddr()%>, 
+                       				<% if (apptNo != null) { %> <%=apptNo%>,<% } %>	<%=c.getCity()%> ,
+                       				<br>
+                       				<%=c.getState()%>, <%=c.getCountry()%>, <%=c.getZip()%>
+                       		</div>
+                		</div>
+		                <div>
+                       		<strong>Credit Card Information: </strong><br>
+                       		Name: <%=c.getCcName()%> <br>
+                       		Number: <%=c.getCcNumber()%> <br>
+                       		Expiration Date: <%=c.getCcExpire()%>
+                       	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	
 <%
 }

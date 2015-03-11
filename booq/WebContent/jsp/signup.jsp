@@ -21,7 +21,7 @@
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     
-<title>Sign up for an account!</title>
+<title>Signup</title>
 </head>
 <body>
 <jsp:include page="navBar.jsp" flush="true"/>
@@ -35,29 +35,29 @@
             </div>
         </div>
         <div class="row  pad-top">
-          	<div class="col-md-8 col-sm-6 col-xs-10">
-              	<div class="panel panel-default">
-            		<div class="panel-heading">
-              			<strong>   Sign Up! </strong>  
-            		</div>
-                    <div class="panel-body">
-                      	<form method="post" action="/booq/MainServlet?action=completeSignup">
-	                        <div>Your Name</div>
+           	<div class="panel panel-default">
+         		<div class="panel-heading">
+           			<strong>   Sign Up! </strong>  
+         		</div>
+                <div class="panel-body">
+                	<form method="post" action="/booq/MainServlet?action=completeSignup">
+                    	<div class="col-md-6 col-sm-8 col-xs-10">
+                       		<div>Your Name</div>
+                       		<div class="form-group input-group">
+                           		<span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                           		<input type="text" class="form-control" name="Name" id="Name" />
+                       		</div>
+		                    <div>Email</div>
+		                    <div class="form-group input-group">
+		                        <span class="input-group-addon">@</span>
+		                        <input type="text" class="form-control" name="Email" id="Email" />
+		                    </div>
+	                        <div>Password</div>
 	                        <div class="form-group input-group">
-	                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-	                            <input type="text" class="form-control" name="Name" id="Name" />
+	                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+	                            <input type="password" class="form-control" name="Password" id="Password" />
 	                        </div>
-                            <div>Email</div>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" name="Email" id="Email" />
-                            </div>
-                            <div>Password</div>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                <input type="password" class="form-control" name="Password" id="Password" />
-                            </div>
-                            <div>Street Address</div>
+							<div>Street Address</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
 			                    <input type="text" class="form-control" name="Street Address" id="Street Address" />
@@ -72,46 +72,46 @@
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
 			                    <input type="text" class="form-control" name="City" id="City" />
 			                </div>
-			                <div>State</div>
-			                <div class="form-group input-group">
-			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" name="State" id="State"/>
-			                </div>
-			                <div>Country</div>
-			                <div class="form-group input-group">
-			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" name="Country" id="Country" />
-			                </div>
-			                <div>Zip</div>
-			                <div class="form-group input-group">
-			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" name="Zip" id="Zip" />
-			                </div>
-			                <div>Credit Card Name</div>
-			                <div class="form-group input-group">
-			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" name="ccName" id="ccName" />
-			                </div>
-			                <div>Credit Card Number</div>
-			                <div class="form-group input-group">
-			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" name="ccNumber" id="ccNumber" />
-			                </div>
-			                <div>Credit Card Exp. Date</div>
-			                <div class="form-group input-group">
-			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" name="ccExp. Date" id="ccExp. Date" />
-			                </div>
-			                <div id="warning" class="feedback"></div>
-                            <input type="submit" class="btn btn-success" name="action" value="complete signup" id="submit">
-							<!--id, email, cName, passwd, addrId, ccName, ccNumber, ccExpire
-								id, streetAddr, city, state, country, zip, apptNo -->
-						</form>
-					</div>
+                		</div>
+                
+		                <div>State</div>
+		                <div class="form-group input-group">
+		                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
+		                    <input type="text" class="form-control" name="State" id="State"/>
+		                </div>
+		                <div>Country</div>
+		                <div class="form-group input-group">
+		                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
+		                    <input type="text" class="form-control" name="Country" id="Country" />
+		                </div>
+		                <div>Zip</div>
+		                <div class="form-group input-group">
+		                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
+		                    <input type="text" class="form-control" name="Zip" id="Zip" />
+		                </div>
+		                <div>Credit Card Name</div>
+		                <div class="form-group input-group">
+		                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
+		                    <input type="text" class="form-control" name="ccName" id="ccName" />
+		                </div>
+		                <div>Credit Card Number</div>
+		                <div class="form-group input-group">
+		                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
+		                    <input type="text" class="form-control" name="ccNumber" id="ccNumber" />
+		                </div>
+		                <div>Credit Card Exp. Date</div>
+		                <div class="form-group input-group">
+		                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
+		                    <input type="text" class="form-control" name="ccExp. Date" id="ccExp. Date" />
+		                </div>
+                		<div id="warning" class="feedback"></div>
+                        <input type="submit" class="btn btn-success" name="action" value="complete signup" id="submit">					
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	
 	<!-- Validation Check -->
 	<script>
