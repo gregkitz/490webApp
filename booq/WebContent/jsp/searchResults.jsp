@@ -37,28 +37,7 @@
 <title>Search Results</title>
 </head>
 <body>
- <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">booq</a>
-        </div>
-       <div id="navbar" class="navbar-collapse collapse">  
-        <form class="navbar-form navbar-left" method="post">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Find your booq here" name="search">
-        </div>
-        <button type="submit" class="btn btn-default" name="action" value="search">Submit</button>
-      </form>
-        </div>
-          
-         
-          </nav> 
+<jsp:include page="navBar.jsp" flush="true"/>
             <!-- Main jumbotron for a primary marketing message or call to action -->
    
     
@@ -92,7 +71,7 @@ if(iterator.hasNext()){
 		  book = iterator.next(); %>
 		  
 		<h3> 
-		  <a href="/booq/MainServlet?action=itemDetails" name="bookResult" value=<%=book.getId()%> >
+		  <a href="/booq/MainServlet?action=itemDetails&bookResult=<%=book.getId() %>" >
 		  	<%=book.getTitle()%>
 		  </a>
 		</h3>
