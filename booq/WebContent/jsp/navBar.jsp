@@ -76,6 +76,21 @@
        <div id="navbar" class="navbar-collapse collapse">  
         <form class="navbar-form navbar-left" method="post" action="/booq/MainServlet?action=search">
         <div class="form-group">
+          
+          <!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    Action <span class="caret"></span>
+  </button>
+  
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="/booq/MainServlet?action=browse">Browse</a></li>
+    <li><a href="#">Statistics</a></li>
+    <li><a href="#">Weekly deltas</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
           <input type="text" class="form-control" placeholder="Find your booq here" name="search">
         </div>
          

@@ -63,6 +63,9 @@ public class MainServlet extends HttpServlet {
 	    	System.out.println(action); 
 	    	int custID;
 	    	switch (action) {
+	    	case "browse": 
+	    		url = "/jsp/browse.jsp";
+	    		break; 
 	    	case "signup":
 	    		url = "/jsp/signup.jsp";
 	    		System.out.println("case is signup"); 
