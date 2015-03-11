@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import booq.beans.Customer;
 import booq.model.DBConnectionPool;
 import booq.model.SignupQueries;
@@ -70,6 +71,9 @@ public class MainServlet extends HttpServlet {
 	    	    url = "/jsp/itemPage.jsp"; 
 	    	    break; 
 	    	case "completeSignup":
+	    		String[] e = request.getParameterValues("Email");
+	    		System.out.println(e[0]);
+	    		
 	    		Customer c = new Customer();
 	    		c.setEmail(request.getParameter("Email"));
 	    		c.setcName(request.getParameter("Name"));

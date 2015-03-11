@@ -50,24 +50,26 @@ public class SignupQueries {
 		int custId = -1;
 		String query1 = "insert into Customer (id, email, cName, passwd,	"
 				+ "ccName, ccNumber, ccExpire) values ("
-				+ c.getId() 	  + ", "
-				+ c.getEmail()    + ", "
-				+ c.getcName()    + ", "
-				+ c.getPasswd()   + ", "
-				+ c.getCcName()	  + ", "
-				+ c.getCcNumber() + ", "
-				+ c.getCcExpire() + ")";
+				+ c.getId() 	  + ", '"
+				+ c.getEmail()    + "', '"
+				+ c.getcName()    + "', '"
+				+ c.getPasswd()   + "', '"
+				+ c.getCcName()	  + "', '"
+				+ c.getCcNumber() + "', '"
+				+ c.getCcExpire() + "')";
+		System.out.println(query1);
 		String query2 = "insert into Address (id, streetAddr, city, state, "
 				+ "country, zip, apptNo) values ("
-				+ c.getAddrId() 	+ ", "
-				+ c.getStreetAddr() + ", "
-				+ c.getCity() 		+ ", "
-				+ c.getState() 		+ ", "
-				+ c.getCountry() 	+ ", "
-				+ c.getZip() 		+ ", "
-				+ c.getApptNo() 	+ ")";
+				+ c.getAddrId() 	+ ", '"
+				+ c.getStreetAddr() + "', '"
+				+ c.getCity() 		+ "', '"
+				+ c.getState() 		+ "', '"
+				+ c.getCountry() 	+ "', '"
+				+ c.getZip() 		+ "', '"
+				+ c.getApptNo() 	+ "')";
 		String query3 = "select id from Customer where email = '" + c.getEmail()
 				+ "' and passwd = '" + c.getPasswd() + "'";
+		System.out.println(query3);
 		String query4 = "select id from Address where streetAddr = '"
 				+ c.getStreetAddr() + "' and city = '" + c.getCity() + "'";
 		
@@ -81,10 +83,12 @@ public class SignupQueries {
 				Statement s = conn.createStatement();
 				s.executeUpdate(query1);
 				s.executeUpdate(query2);
-				custId = s.executeUpdate(query3);
+				ResultSet rs;
+				rs = s.executeQuery(query3);
+				custId = rs.getInt(1);
 				
 				//link customer to address
-				ResultSet rs = s.executeQuery(query4);
+				rs = s.executeQuery(query4);
 				String query5 = "insert into Customer (addrId) values (" + rs.getInt(1) + ")";
 				s.executeUpdate(query5);
 				

@@ -106,7 +106,7 @@
          	  %> Invalid credentials. <% }
  %>
         	 <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" method="post">
             <input type="submit" class="btn btn-success" name="action" value="signup">
           </form>
         	  

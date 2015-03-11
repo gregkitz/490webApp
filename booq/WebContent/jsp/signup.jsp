@@ -71,62 +71,62 @@
 	                        <div>Your Name</div>
 	                        <div class="form-group input-group">
 	                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-	                            <input type="text" class="form-control" id="Name" />
+	                            <input type="text" class="form-control" name="Name" id="Name" />
 	                        </div>
                             <div>Email</div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" id="Email" />
+                                <input type="text" class="form-control" name="Email" id="Email" />
                             </div>
                             <div>Password</div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                <input type="password" class="form-control" id="Password" />
+                                <input type="password" class="form-control" name="Password" id="Password" />
                             </div>
                             <div>Street Address</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" id="Street Address" />
+			                    <input type="text" class="form-control" name="Street Address" id="Street Address" />
 			                </div>
 			                <div>Appt.</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" id="Appt." />
+			                    <input type="text" class="form-control" name="Appt." id="Appt." />
 			                </div>
 			                <div>City</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" id="City" />
+			                    <input type="text" class="form-control" name="City" id="City" />
 			                </div>
 			                <div>State</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" id="State"/>
+			                    <input type="text" class="form-control" name="State" id="State"/>
 			                </div>
 			                <div>Country</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" id="Country" />
+			                    <input type="text" class="form-control" name="Country" id="Country" />
 			                </div>
 			                <div>Zip</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-home"  ></i></span>
-			                    <input type="text" class="form-control" id="Zip" />
+			                    <input type="text" class="form-control" name="Zip" id="Zip" />
 			                </div>
 			                <div>Credit Card Name</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" id="ccName" />
+			                    <input type="text" class="form-control" name="ccName" id="ccName" />
 			                </div>
 			                <div>Credit Card Number</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" id="ccNumber" />
+			                    <input type="text" class="form-control" name="ccNumber" id="ccNumber" />
 			                </div>
 			                <div>Credit Card Exp. Date</div>
 			                <div class="form-group input-group">
 			                    <span class="input-group-addon"><i class="fa fa-credit-card"  ></i></span>
-			                    <input type="text" class="form-control" id="ccExp. Date" />
+			                    <input type="text" class="form-control" name="ccExp. Date" id="ccExp. Date" />
 			                </div>
 			                <div id="warning" class="feedback"></div>
                             <input type="submit" class="btn btn-success" name="action" value="completeSignup" id="submit">

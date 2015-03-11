@@ -14,8 +14,12 @@ select bookId, customerId, ratingDate, rating, description
 	from Ratings
 	where bookId = 5;
 
-select id from Customer where email = '4tehlulz' and passwd = 'gregor';
+select id from Customer where email = 'john@gmail.com' and passwd = '1234';
 
 select * from Customer;
 
 select * from Address inner join Customer on Customer.addrId = Address.id;
+
+select Book.id, title, author, price, stock, genreName, genreId, description, picturePath
+	from Book inner join Genre on Book.genreId = Genre.id
+	where Book.id = 1
