@@ -4,7 +4,6 @@ insert into Customer(email, passwd) values
 ('john@gmail.com', '1234');
 
 
-
 insert into Genre(id, genreName) values
   (1,'Action'),
   (2,'Adventure'),

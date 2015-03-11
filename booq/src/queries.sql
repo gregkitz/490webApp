@@ -22,4 +22,7 @@ select * from Address inner join Customer on Customer.addrId = Address.id;
 
 select Book.id, title, author, price, stock, genreName, genreId, description, picturePath
 	from Book inner join Genre on Book.genreId = Genre.id
-	where Book.id = 1
+	where Book.id = 1;
+
+update Customer set addrId = 5 where id = 4
+

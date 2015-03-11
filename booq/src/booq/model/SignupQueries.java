@@ -85,11 +85,17 @@ public class SignupQueries {
 				s.executeUpdate(query2);
 				ResultSet rs;
 				rs = s.executeQuery(query3);
-				custId = rs.getInt(1);
+				while (rs.next()) {
+					custId = rs.getInt(1);
+				}
 				
 				//link customer to address
 				rs = s.executeQuery(query4);
-				String query5 = "insert into Customer (addrId) values (" + rs.getInt(1) + ")";
+				String query5 = "";
+				while (rs.next()) {
+					System.out.println(rs.getInt(1));
+					query5 = "update Customer set addrId = " + rs.getInt(1) + " where id = " + custId;
+				}
 				s.executeUpdate(query5);
 				
 				s.close();
