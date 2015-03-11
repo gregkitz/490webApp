@@ -50,7 +50,7 @@ create table Customer (
 );
 
 create table CartItem (
-	id int not null,
+	id int not null auto_increment unique,
 	bookId int,
 	quantity int,
 

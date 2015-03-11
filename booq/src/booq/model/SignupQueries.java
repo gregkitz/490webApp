@@ -22,9 +22,10 @@ public class SignupQueries {
 		return getIntQuery(connPool, query);
 	}
 	
-	private static int getIntQuery(DBConnectionPool connPool, String query) {
-		int id = -1;
-		
+	public static Customer getCustomer(DBConnectionPool connPool, int custId) {
+		String query = "select * from Customer inner join Address on addrId "
+				+ "= Address.id where Customer.id = " + custId;
+		Customer customer = null;
 		try {
 			Connection conn = null;
 			try {
@@ -34,8 +35,23 @@ public class SignupQueries {
 			if (conn != null) {
 				Statement s = conn.createStatement();
 				ResultSet rs = s.executeQuery(query);
-				if (rs.next()) {
-					id = rs.getInt(1);
+				while (rs.next()) {
+					customer = new Customer();
+					customer.setId(rs.getInt(1));
+					customer.setEmail(rs.getString(2));
+					customer.setcName(rs.getString(3));
+					customer.setPasswd(rs.getString(4));
+					customer.setAddrId(rs.getInt(5));
+					customer.setCcName(rs.getString(6));
+					customer.setCcNumber(rs.getString(7));
+					customer.setCcExpire(rs.getString(8));
+					customer.setAddrId(rs.getInt(9)); //selected twice
+					customer.setStreetAddr(rs.getString(10));
+					customer.setCity(rs.getString(11));
+					customer.setState(rs.getString(12));
+					customer.setCountry(rs.getString(13));
+					customer.setZip(rs.getString(14));
+					customer.setApptNo(rs.getString(15));
 				}
 				rs.close();
 				s.close();
@@ -43,7 +59,7 @@ public class SignupQueries {
 			connPool.closeAll();
 		} catch (SQLException e) { e.printStackTrace(); }
 		
-		return id;
+		return customer;
 	}
 	
 	public static int insert(DBConnectionPool connPool, Customer c) {
@@ -104,5 +120,29 @@ public class SignupQueries {
 		} catch (SQLException e) { e.printStackTrace(); }
 		
 		return custId;
+	}
+	
+	private static int getIntQuery(DBConnectionPool connPool, String query) {
+		int id = -1;
+		
+		try {
+			Connection conn = null;
+			try {
+				conn = connPool.getConnection();
+			} catch (Exception e) { e.printStackTrace(); }
+			
+			if (conn != null) {
+				Statement s = conn.createStatement();
+				ResultSet rs = s.executeQuery(query);
+				if (rs.next()) {
+					id = rs.getInt(1);
+				}
+				rs.close();
+				s.close();
+			}
+			connPool.closeAll();
+		} catch (SQLException e) { e.printStackTrace(); }
+		
+		return id;
 	}
 }

@@ -5,11 +5,13 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 
 
+
 //import book.beans.PurchaseItem;
 //import book.beans.Customer;
 //import book.model.BookQueries;
 //import book.model.CreateOrder;
 import booq.beans.Book;
+import booq.beans.Customer;
 import booq.beans.Genre;
 
 
@@ -128,6 +130,11 @@ public class DBConnectionPool {
 		return GenreQueries.getGenres(this); 
 	}
 
+//----customer operations ----// 
+	public Customer getCustomer(int custId) {
+		return SignupQueries.getCustomer(this, custId);
+	}
+	
 //----ordering operations ----// 
 	
 //insert order--//
