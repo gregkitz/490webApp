@@ -42,8 +42,13 @@ if (session.getAttribute("cart") == null){
 	session.setAttribute("cart", shoppingCart); 
 }
 
-
-
+String email = (String) session.getAttribute("userEmail");
+String custIDstring = (String) session.getAttribute("customerIDstring"); 
+int custID = -2; 
+if(custIDstring != null) { 
+	custID = Integer.parseInt(custIDstring);
+	System.out.println("cust id in jsp " + custID); 
+}
 %>
 
     <!-- Navigation -->
@@ -61,14 +66,16 @@ if (session.getAttribute("cart") == null){
                         <h1>booq</h1>
                         <h3>An online bookstore</h3>
                         <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="/booq/MainServlet?action=signup" class="btn btn-default btn-lg">
-                                	<i class="fa fa-user fa-fw"></i> 
-                                	<span class="network-name">Sign up now to start searching</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <% if (!(custID > 0)) { %>
+	                        <ul class="list-inline intro-social-buttons">
+	                            <li>
+	                                <a href="/booq/MainServlet?action=signup" class="btn btn-default btn-lg">
+	                                	<i class="fa fa-user fa-fw"></i> 
+	                                	<span class="network-name">Sign up now to start searching</span>
+	                                </a>
+	                            </li>
+	                        </ul>
+	                	<% } %>
                     </div>
                 </div>
             </div>

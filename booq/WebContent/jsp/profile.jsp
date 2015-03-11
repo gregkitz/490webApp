@@ -37,13 +37,12 @@
 <jsp:include page="navBar.jsp" flush="true"/>
 
 <%
-	//HttpSession theSession = request.getSession();
 	String email = (String) session.getAttribute("userEmail");
 	String custIDstring = (String) session.getAttribute("customerIDstring"); 
 	int custID = -2; 
 	if(custIDstring != null) { 
 		custID = Integer.parseInt(custIDstring);
-		System.out.println("cust id in jsp" + custID); 
+		System.out.println("cust id in jsp " + custID); 
 	}
 	//Display if already logged in 
 	Customer c;
