@@ -4,6 +4,7 @@
  <%@page import="booq.model.DBConnectionPool"%>  
  <%@page import="booq.beans.CartItem"%> 
  <%@page import="java.util.ArrayList"%>
+ <%@page import="java.util.Iterator"%>
 <!--<jsp:useBean id="connPool" scope="application"
   class="booq.model.DBConnectionPool"/>-->
 
@@ -74,6 +75,24 @@ switch (cartAction) {
 		break; 
 }
 }
+   if(session.getAttribute("cart") != null){ 
+	   ArrayList<CartItem> theShoppingCart = (ArrayList<CartItem>) session.getAttribute("cart"); 
+	   Iterator<CartItem> iterator = theShoppingCart.iterator(); 
+	   CartItem item = null; 
+	   if(iterator.hasNext()){
+			
+		} 
+	   else {
+		  %> Nothing in your cart! <%
+	   }
+	   while(iterator.hasNext()){
+		   item = (CartItem) iterator.next();
+		   %><%=item.getBook().getTitle()%><%
+	   }
+	   
+	   
+   }
+
 %>
 
 
