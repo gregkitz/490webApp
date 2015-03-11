@@ -69,6 +69,7 @@ if(iterator.hasNext()){
 		
 		<%while (iterator.hasNext()) {
 		  book = iterator.next(); %>
+		   <img class="img-responsive img-rounded" style="float:left;margin:30px;" ""height="50" width="50" src="<%=book.getPicturePath()%>.jpg"  alt="">
 		  
 		<h3> 
 		  <a href="/booq/MainServlet?action=itemDetails&bookResult=<%=book.getId() %>" >
@@ -81,6 +82,7 @@ if(iterator.hasNext()){
 		<%=book.getPrice() %>
 		<br>
 		<%=book.getDescription()%> 
+		
 		<br><hr>
 		 
 		<% }

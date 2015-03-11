@@ -108,11 +108,11 @@ public class MainServlet extends HttpServlet {
 	    			session.setAttribute("userEmail", request.getParameter("email"));
 	    			
 	    		}
-	    		url = "/jsp/index.jsp";
+	    		url = "/jsp/index1.jsp";
 	    		break;
 	    	case "logout" : 
 	    		session.invalidate(); 
-	    		url="/jsp/index.jsp";
+	    		url="/jsp/index1.jsp";
 	    	     break; 
 	    	case "search":
 	    		System.out.println("search"); 

@@ -74,7 +74,7 @@
           <a class="navbar-brand" href="/booq/MainServlet">booq</a>
         </div>
        <div id="navbar" class="navbar-collapse collapse">  
-        <form class="navbar-form navbar-left" method="post" action="/booq/jsp/searchResults.jsp">
+        <form class="navbar-form navbar-left" method="post" action="/booq/MainServlet?action=search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Find your booq here" name="search">
         </div>
