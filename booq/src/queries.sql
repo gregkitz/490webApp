@@ -5,8 +5,7 @@ select title, author, price, genreName from Book
 
 select Book.id, title, author, price, stock, genreName, genreId, description
 	from Book inner join Genre
-	on Book.genreId = Genre.id
-	where genreName like 'Romance';
+	on Book.genreId = Genre.id;
 
 select id, genreName from Genre;
 
