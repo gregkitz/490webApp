@@ -37,10 +37,10 @@
 <body>
 
 <% //putting the cart in session if it's not there already 
-ArrayList<CartItem> shoppingCart  = new ArrayList<CartItem>(); 
-if (session.getAttribute("cart") == null){
-	session.setAttribute("cart", shoppingCart); 
-}
+// ArrayList<CartItem> shoppingCart  = new ArrayList<CartItem>(); 
+// if (session.getAttribute("cart") == null){
+// 	session.setAttribute("cart", shoppingCart); 
+// }
 
 String email = (String) session.getAttribute("userEmail");
 String custIDstring = (String) session.getAttribute("customerIDstring"); 

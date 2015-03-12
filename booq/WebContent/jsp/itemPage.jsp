@@ -2,6 +2,10 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="booq.beans.Book"%>  
     <%@page import="booq.model.DBConnectionPool"%>  
+    <%@page import="java.util.ArrayList"%>
+    <%@page import="booq.beans.Rating"%>
+    <%@page import="booq.beans.CartItem"%>
+    <%@page import="java.util.Iterator"%>
 <!--<jsp:useBean id="connPool" scope="application"
   class="booq.model.DBConnectionPool"/>-->
   <jsp:include page="navBar.jsp" flush="true"/>
@@ -46,10 +50,21 @@
 <body>
 
 <%
-
+ArrayList<CartItem> shoppingCart  = new ArrayList<CartItem>(); 
+if (session.getAttribute("cart") == null){
+	session.setAttribute("cart", shoppingCart); 
+}
 connPool = new DBConnectionPool();
+
+
 String bookID = (String) request.getParameter("bookResult"); 
 System.out.println("This is the book ID: " + bookID); 
+
+//get ratings
+ArrayList<Rating> ratings =connPool.getRatingByBook(Integer.parseInt(request.getParameter("bookResult"))); 
+
+//
+
 Book book = new Book();
 if( connPool.getBookDetails(Integer.parseInt(bookID)) != null){
 	book = connPool.getBookDetails(Integer.parseInt(bookID));
@@ -113,7 +128,61 @@ System.out.println(book.getPicturePath());
     <!-- /.row -->
 
     <hr>
+ <!-- Call to Action Well -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="well text-center">
+            This is a well that is a great spot for a business tagline or phone number for easy access!
+        </div>
+      </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+<!-- RATINGS GO HERE -->
 
+<%if(!ratings.isEmpty()) {
+	Iterator<Rating> iterator = ratings.iterator(); 
+	if (iterator.hasNext()){
+	Rating rating = iterator.next(); %>
+		 <!-- Content Row -->
+		    <div class="row">
+		      <div class="col-md-4">
+		        <h2><%=rating.getDate() %></h2>
+		        <p><%=rating.getDes() %></p>
+		        <a class="btn btn-default" href="#">More Info</a>
+		      </div>
+		      <!-- /.col-md-4 -->
+		      <div class="col-md-4">
+		        <h2>Heading 2</h2>
+		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+		        <a class="btn btn-default" href="#">More Info</a>
+		      </div>
+		      <!-- /.col-md-4 -->
+		      <div class="col-md-4">
+		        <h2>Heading 3</h2>
+		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+		        <a class="btn btn-default" href="#">More Info</a>
+		      </div>
+		        <!-- /.col-md-4 -->
+		    </div><%
+	}
+}
+%>
+
+   
+    <!-- /.row -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; Your Website 2014</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /.container -->
     
 
     <!-- Footer -->

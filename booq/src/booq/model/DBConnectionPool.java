@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 
+
 //import book.beans.PurchaseItem;
 //import book.beans.Customer;
 //import book.model.BookQueries;
@@ -15,6 +16,7 @@ import booq.beans.Book;
 import booq.beans.Customer;
 import booq.beans.Genre;
 import booq.beans.Order;
+import booq.beans.Rating;
 
 
 public class DBConnectionPool {
@@ -126,6 +128,10 @@ public class DBConnectionPool {
 
 	public Book getBookDetails(int bookID) {
 		return BookQueries.getBook(this, bookID);
+	}
+	
+	public ArrayList<Rating> getRatingByBook(int bookID){
+		return RatingQueries.getRatingsByBook(this, bookID); 
 	}
 	
 	public ArrayList<Genre> getGenres(){

@@ -66,6 +66,9 @@ public class MainServlet extends HttpServlet {
 	    	case "browse": 
 	    		url = "/jsp/browse.jsp";
 	    		break; 
+	    	case "checkout":
+	    		url = "/jsp/checkout.jsp"; 
+	    		break; 
 	    	case "rate" : 
 	    	    url = "/jsp/rate.jsp"; 
 	    	    break; 

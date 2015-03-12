@@ -107,9 +107,12 @@ System.out.println("cart should print here");
 	   }
 	   
 	   %><b>Total:$<%=runningTotal %></b><%
+			   String theTotal = Double.toString(runningTotal); 
+	   session.setAttribute("cartTotal", theTotal); 
    }
-
-%>
+   %><br><br>
+   <a href="/booq/MainServlet?action=checkout" class="btn btn-primary" role="button">Purchase!</a>
+   
 
 
 
