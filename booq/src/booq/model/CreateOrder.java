@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement; 
 import java.util.ArrayList;
 
-import booq.beans.Book;
+import booq.beans.CartItem;
 import booq.beans.Order;
 
 public class CreateOrder {
@@ -20,7 +20,7 @@ public class CreateOrder {
 	
 	public static Order insert(DBConnectionPool connPool, Order order) {		
 		String query3, query2, query1 = query1Base
-				+ order.getCustomer().getId() + ", "
+				+ order.getCustId() + ", "
 				+ "now())";
 		String query1Helper = "select id, orderDate from MainOrder order by id desc limit 1";
 		String query2Helper = "select id from CartItem order by id desc limit 1";
@@ -43,7 +43,7 @@ public class CreateOrder {
 				
 				for (int i = 0; i < order.getItems().size(); i++) {
 					query2 = query2Base
-							+ order.getItems().get(i).getBook().getId() + ", "
+							+ order.getItems().get(i).getBookId() + ", "
 							+ order.getItems().get(i).getQuantity() + ")";
 					s.executeUpdate(query2);
 					rs = s.executeQuery(query2Helper);
@@ -66,8 +66,7 @@ public class CreateOrder {
 	public static ArrayList<Order> getOrders(DBConnectionPool connPool) {
 		ArrayList<Order> orders = new ArrayList<Order>();
 		String query1 = "select * from OrderLink order by orderId";
-		String query2 = "select * from MainOrder";
-		String query3 = "select * from CartItem";
+		
 		try {
 			Connection conn = null;
 			try {
@@ -77,18 +76,38 @@ public class CreateOrder {
 			if (conn != null) {
 				Statement s = conn.createStatement();
 				ResultSet rs = s.executeQuery(query1);
-				while (rs.next()) {
-		              Order order = new Order();
-		              book.setId(rs.getInt(1));
-		              book.setTitle(rs.getString(2));
-		              book.setAuthor(rs.getString(3));
-		              book.setPrice(rs.getDouble(4));
-		              book.setStock(rs.getInt(5));
-		              book.setGenreName(rs.getString(6));
-		              book.setGenreId(rs.getInt(7));
-		              book.setDescription(rs.getString(8));
-		              book.setPicturePath(rs.getString(9)); 
-		              orders.add(order);
+				ResultSet rs2;
+				int mainOrderId = 0;
+				Order order = new Order();
+				while (rs.next()) {					
+					if (mainOrderId != rs.getInt(1)) { //if we have a new order
+						String query2 = "select * from MainOrder where id = " + rs.getInt(1);
+						if (mainOrderId != 0) { orders.add(order); }
+						order = new Order();
+						
+						rs2 = s.executeQuery(query2);
+						if (rs2.next()) {
+							order.setId(rs2.getInt(1));
+							order.setCustId(rs2.getInt(2));
+							order.setDate(rs2.getString(3));
+						}
+						mainOrderId = rs.getInt(1);
+					}
+					
+					String query3 = "select * from CartItem where id = " + rs.getInt(2);
+					rs2 = s.executeQuery(query3);
+					if (rs2.next()) {
+						CartItem item = new CartItem();
+						item.setId(rs2.getInt(1));
+						item.setBookId(rs2.getInt(2));
+						item.setQuantity(rs2.getInt(3));
+						order.getItems().add(item);
+					}
+					
+					rs2.close();
+					
+					orders.add(order);
+					
 				}
 				rs.close();
 				s.close();

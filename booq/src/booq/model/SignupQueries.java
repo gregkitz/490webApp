@@ -113,7 +113,7 @@ public class SignupQueries {
 					query5 = "update Customer set addrId = " + rs.getInt(1) + " where id = " + custId;
 				}
 				s.executeUpdate(query5);
-				
+				rs.close();
 				s.close();
 			}
 			connPool.closeAll();

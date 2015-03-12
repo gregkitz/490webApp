@@ -2,24 +2,24 @@ package booq.beans;
 
 public class CartItem {
 	private int id;
-	private Book book;
+	private int bookId;
 	private int  quantity;
 	
 	//constructor
-	public CartItem (int quantity, Book book){
-		if (book != null){
-			this.book = book; 
-		}
+	public CartItem(){}
+	
+	public CartItem (int quantity, int bookId) { //use book queries to get the book if you want it
+		this.bookId = bookId; 
 		this.quantity = quantity; 
 	}
 
 	//getters
 	public int 	    getId() 		{ return id; }
-    public Book     getBook() 	    { return book; }
+	public int 	    getBookId() 		{ return bookId; }
     public int      getQuantity() 	{ return quantity; }
     
     //setters
-    public void setId(int id) 				  { this.id = id; }
-    public void setBook(Book book) 			  { this.book = book; }
-    public void setQuantity(int quantity) 	  { this.quantity = quantity; }
+    public void setId(int id) 			  { this.id = id; }
+    public void setBookId(int bookId) 	  { this.bookId = bookId; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 }
