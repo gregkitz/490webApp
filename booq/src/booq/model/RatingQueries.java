@@ -12,17 +12,23 @@ public class RatingQueries {
 	
 	private static final String queryBase =
 			"select bookId, customerId, ratingDate, rating, " 
-			+ "description from Ratings	where ";
+			+ "description from Ratings	";
 	
 	public static ArrayList<Rating> getRatingsByBook
 	(DBConnectionPool connPool, int bookId) {
-		String query = queryBase + "bookId = " + bookId;
+		String query = queryBase + "where bookId = " + bookId;
 		return getRatings(connPool, query);
 	}
 	
 	public static ArrayList<Rating> getRatingsByCustomer
 	(DBConnectionPool connPool, int custId) {
-		String query = queryBase + "customerId = " + custId;
+		String query = queryBase + "where customerId = " + custId;
+		return getRatings(connPool, query);
+	}
+	
+	public static ArrayList<Rating> getTopRating
+	(DBConnectionPool connPool, int size) {
+		String query = queryBase + "order by rating desc limit " + size;
 		return getRatings(connPool, query);
 	}
 	
@@ -54,5 +60,27 @@ public class RatingQueries {
 		} catch (SQLException e) { e.printStackTrace(); }
 		
 		return ratings;
+	}
+	
+	public static void insert(DBConnectionPool connPool, Rating rating) {
+		String query = "insert into Ratings(bookId, customerId, ratingDate, rating) values ("
+				+ rating.getBookId() + ", "
+				+ rating.getCustId() + ", "
+				+ "now(), "
+				+ rating.getRatingNum() + ")";
+		
+		try {
+			Connection conn = null;
+			try {
+				conn = connPool.getConnection();
+			} catch (Exception e) { e.printStackTrace(); }
+			
+			if (conn != null) {
+				Statement s = conn.createStatement();
+				s.executeQuery(query);
+				s.close();
+			}
+			connPool.closeAll();
+		} catch (SQLException e) { e.printStackTrace(); }
 	}
 }

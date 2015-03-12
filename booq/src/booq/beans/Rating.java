@@ -10,7 +10,7 @@ public class Rating {
 	public int getCustId()  { return custId; }
 	public int getBookId()  { return bookId; }
 	public String getDate() { return date; }
-	public int ratingNum()  { return ratingNum; }
+	public int getRatingNum()  { return ratingNum; }
 	public String getDes()  { return des; }
 	
 	public void setCustId(int custId)  		{ this.custId = custId; }
