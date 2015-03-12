@@ -42,6 +42,39 @@ insert into Book(id, title, author, price, genreId, stock, picturePath) values
   (17, 'That Time I did the thing', 'David Bowie', 21.76, 3, 3, 'pics/book17'),
   (18, 'Etymology of Linux', 'Dallas van Ess', 1.99, 10, 8, 'pics/book18');
 
+update Book set
+	description="Truely an inspiring book about overcoming reality and forcing a name in thus a very way."
+where id=1;
+
+update Book set
+	description="Harrys back again for more antics, in this seminal crossover lovechild of humanitarian George Lucas and J.K. Smowling.  Simply classic."
+where id=2;
+
+update Book set
+	description="His envies are truely revealed with the tell all comedy, Greg."
+where id=3;
+
+update Book set
+	description="A classic crime drama to go down in the ages of 12 - 99"
+where id=4;
+
+update Book set
+	description="Truely an inspiring book about overcoming reality and forcing a name in thus a very way."
+where id=5;
+
+update Book set
+	description="Truely an inspiring book about overcoming reality and forcing a name in thus a very way."
+where id=6;
+
+update Book set
+	description="Truely an inspiring book about overcoming reality and forcing a name in thus a very way."
+where id=7;
+
+update Book set
+	description="Truely an inspiring book about overcoming reality and forcing a name in thus a very way."
+where id=8;
+
+
 insert into Ratings(bookId, customerId, ratingDate, rating) values
   (1, 1, '2015-02-12', 4),
   (2, 2, '2000-01-01', 3),
