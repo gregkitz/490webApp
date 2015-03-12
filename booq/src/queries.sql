@@ -25,5 +25,13 @@ select Book.id, title, author, price, stock, genreName, genreId, description, pi
 
 update Customer set addrId = 5 where id = 4;
 
-select * from MainOrder order by id desc limit 1;
-
+select cName, title, quantity, orderDate
+	from MainOrder
+		inner join OrderLink
+			on MainOrder.id = orderId
+		inner join CartItem
+			on itemId = CartItem.id
+		inner join Customer
+			on Customer.id = customerId
+		inner join Book
+			on Book.id = bookId

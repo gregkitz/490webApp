@@ -36,7 +36,7 @@
 </head>
 
 <jsp:include page="navBar.jsp" flush="true"/>
-
+<body>
 <%
 	String email = (String) session.getAttribute("userEmail");
 	String custIDstring = (String) session.getAttribute("customerIDstring"); 
@@ -102,7 +102,7 @@
 %>
 	
 
-<body>
+
 
 </body>
 </html>

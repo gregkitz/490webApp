@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 
 
+
 //import book.beans.PurchaseItem;
 //import book.beans.Customer;
 //import book.model.BookQueries;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import booq.beans.Book;
 import booq.beans.Customer;
 import booq.beans.Genre;
+import booq.beans.Order;
 
 
 public class DBConnectionPool {
@@ -138,6 +140,13 @@ public class DBConnectionPool {
 //----ordering operations ----// 
 	
 //insert order--//
-	// public long insertOrder(); 
+	public Order insertOrder(Order order) {
+		return CreateOrder.insert(this, order);
+	}
+	
+	public ArrayList<Order> getOrders() {
+		return CreateOrder.getOrders(this);
+	}
+	
 	
 }

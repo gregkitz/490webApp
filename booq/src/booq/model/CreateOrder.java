@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException; 
 import java.sql.Statement; 
+import java.util.ArrayList;
 
+import booq.beans.Book;
 import booq.beans.Order;
 
 public class CreateOrder {
@@ -16,7 +18,7 @@ public class CreateOrder {
 	private static final String query3Base =
 			"insert into OrderLink (orderId, itemId) values (";
 	
-	public static void insert(DBConnectionPool connPool, Order order) {		
+	public static Order insert(DBConnectionPool connPool, Order order) {		
 		String query3, query2, query1 = query1Base
 				+ order.getCustomer().getId() + ", "
 				+ "now())";
@@ -57,5 +59,44 @@ public class CreateOrder {
 			}
 			connPool.closeAll();
 	   	} catch (SQLException e) { e.printStackTrace(); }
+		
+		return order;
 	}
+	
+	public static ArrayList<Order> getOrders(DBConnectionPool connPool) {
+		ArrayList<Order> orders = new ArrayList<Order>();
+		String query1 = "select * from OrderLink order by orderId";
+		String query2 = "select * from MainOrder";
+		String query3 = "select * from CartItem";
+		try {
+			Connection conn = null;
+			try {
+				conn = connPool.getConnection();
+			} catch (Exception e) { e.printStackTrace(); }
+			
+			if (conn != null) {
+				Statement s = conn.createStatement();
+				ResultSet rs = s.executeQuery(query1);
+				while (rs.next()) {
+		              Order order = new Order();
+		              book.setId(rs.getInt(1));
+		              book.setTitle(rs.getString(2));
+		              book.setAuthor(rs.getString(3));
+		              book.setPrice(rs.getDouble(4));
+		              book.setStock(rs.getInt(5));
+		              book.setGenreName(rs.getString(6));
+		              book.setGenreId(rs.getInt(7));
+		              book.setDescription(rs.getString(8));
+		              book.setPicturePath(rs.getString(9)); 
+		              orders.add(order);
+				}
+				rs.close();
+				s.close();
+			}
+			connPool.closeAll();
+		} catch (SQLException e) { e.printStackTrace(); }
+		
+		return orders;
+	}
+	
 }
