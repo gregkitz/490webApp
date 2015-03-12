@@ -5,6 +5,7 @@
 <%@ page import="booq.beans.Order" %>
 <%@page import="booq.model.DBConnectionPool"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Iterator"%>
 <jsp:useBean id="connPool" scope="application" class="booq.model.DBConnectionPool"/>
 <html>
 <head>
@@ -44,8 +45,88 @@
 ArrayList<Order> orders;
 connPool = new DBConnectionPool();
 orders = connPool.getOrders();
+Iterator<Order> iterator = orders.iterator();
+Order order;
 
 %>
+
+<br><br><br>
+	
+	<div class="container">
+        <div class="row pad-top ">
+            <div class="col-md-12">
+                <h2>Order Statistics</h2>
+            </div>
+        </div>
+        <div class="row  pad-top">
+           	<div class="panel panel-default">
+         		<div class="panel-heading">
+           			<strong>By order</strong>  
+         		</div>
+                <div class="panel-body">
+                    	<% while (iterator.hasNext()) {
+                    		order = iterator.next();	
+                    	%>
+                    	<div class="col-md-6 col-sm-8 col-xs-10">
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+                       		
+                       		<div>
+                       			<strong>ID =</strong><%=order.getId()%>
+                       		</div>
+                       		<br>
+                       		<div>
+                       			<strong>Email: </strong><br>
+                       		</div>
+                       		<br>
+                       		<div>
+                       			<strong>Address: </strong> <br>
+                       				
+                       		</div>
+                		</div>
+		                <div>
+                       		<strong>Credit Card Information: </strong><br>
+                       		Name:<br>
+                       		Number: <br>
+                       		Expiration Date: 
+                       	</div>
+                       	<%
+                    	}
+                       	%>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	    <!-- jQuery -->
+     <script src="js/jquery.js"></script> -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script> -->
 
 </body>
 </html>

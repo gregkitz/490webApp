@@ -34,4 +34,13 @@ select cName, title, quantity, orderDate
 		inner join Customer
 			on Customer.id = customerId
 		inner join Book
-			on Book.id = bookId
+			on Book.id = bookId;
+
+select * from MainOrder;
+
+select * from CartItem;
+
+/*testing CreateOrder.getOrder()*/  
+select * from OrderLink order by orderId;
+select * from MainOrder where id = 5;
+select * from CartItem where id = 1;

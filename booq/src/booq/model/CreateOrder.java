@@ -55,6 +55,7 @@ public class CreateOrder {
 							+ order.getItems().get(i).getId() + ")";
 					s.executeUpdate(query3);
 				}
+				rs.close();
 				s.close();
 			}
 			connPool.closeAll();
@@ -78,12 +79,18 @@ public class CreateOrder {
 				ResultSet rs = s.executeQuery(query1);
 				ResultSet rs2;
 				int mainOrderId = 0;
+				int itemId = 1;
 				Order order = new Order();
 				while (rs.next()) {					
 					if (mainOrderId != rs.getInt(1)) { //if we have a new order
-						String query2 = "select * from MainOrder where id = " + rs.getInt(1);
-						if (mainOrderId != 0) { orders.add(order); }
+						int oldId = mainOrderId;
+						mainOrderId = rs.getInt(1);
+						itemId = rs.getInt(2);
+						
+						String query2 = "select * from MainOrder where id = " + mainOrderId;
+						if (oldId != 0) { orders.add(order); }
 						order = new Order();
+						
 						
 						rs2 = s.executeQuery(query2);
 						if (rs2.next()) {
@@ -91,10 +98,9 @@ public class CreateOrder {
 							order.setCustId(rs2.getInt(2));
 							order.setDate(rs2.getString(3));
 						}
-						mainOrderId = rs.getInt(1);
 					}
 					
-					String query3 = "select * from CartItem where id = " + rs.getInt(2);
+					String query3 = "select * from CartItem where id = " + itemId;
 					rs2 = s.executeQuery(query3);
 					if (rs2.next()) {
 						CartItem item = new CartItem();
@@ -109,7 +115,7 @@ public class CreateOrder {
 					orders.add(order);
 					
 				}
-				rs.close();
+				//rs.close();
 				s.close();
 			}
 			connPool.closeAll();

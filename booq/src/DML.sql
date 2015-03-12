@@ -89,5 +89,9 @@ update Ratings SET description =
   where bookId = 1 and customerId = 1;
 
 insert into MainOrder (customerId, orderDate) values (1, now());
-insert into CartItem (bookId, quantity) values (2, 3);
+insert into CartItem (bookId, quantity) values (2, 1);
+insert into CartItem (bookId, quantity) values (4, 1);
+insert into CartItem (bookId, quantity) values (5, 1);
 insert into OrderLink (orderId, itemId) values ((select id from MainOrder order by id desc limit 1), 1);
+insert into OrderLink (orderId, itemId) values ((select id from MainOrder order by id desc limit 1), 2);
+insert into OrderLink (orderId, itemId) values ((select id from MainOrder order by id desc limit 1), 3);
