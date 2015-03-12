@@ -88,6 +88,8 @@ System.out.println(book.getPicturePath());
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
+      <p>Price: $<%=book.getPrice()%></p>
+      
       <br>
       <input type="hidden" name="action" value="cart"> 
       <input  class="btn btn-primary btn-lg" type = "submit" value="Add item to cart">
@@ -99,9 +101,11 @@ System.out.println(book.getPicturePath());
 
 <!--  END QUANTITY SELECTION BOX  -->
       <br>
-        <form method="GET" ">
-  <input id="input-2ba" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
-  <input type="submit">
+        <form method="GET">
+  <input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="sm"
+           data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa" name="rating">
+           <input type="hidden" name="action" value="rate"> 
+  <input type="submit" value="Rate!">
   </form>
       </div>
       <!-- /.col-md-4 -->
@@ -110,39 +114,7 @@ System.out.println(book.getPicturePath());
 
     <hr>
 
-    <!-- Call to Action Well -->
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="well text-center">
-            This is a well that is a great spot for a business tagline or phone number for easy access!
-        </div>
-      </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-
-    <!-- Content Row -->
-    <div class="row">
-      <div class="col-md-4">
-        <h2>Heading 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-      </div>
-      <!-- /.col-md-4 -->
-      <div class="col-md-4">
-        <h2>Heading 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-      </div>
-      <!-- /.col-md-4 -->
-      <div class="col-md-4">
-        <h2>Heading 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-      </div>
-        <!-- /.col-md-4 -->
-    </div>
-    <!-- /.row -->
+    
 
     <!-- Footer -->
     <footer>
