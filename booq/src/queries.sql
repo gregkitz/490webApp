@@ -23,5 +23,7 @@ select Book.id, title, author, price, stock, genreName, genreId, description, pi
 	from Book inner join Genre on Book.genreId = Genre.id
 	where Book.id = 1;
 
-update Customer set addrId = 5 where id = 4
+update Customer set addrId = 5 where id = 4;
+
+select * from MainOrder order by id desc limit 1;
 

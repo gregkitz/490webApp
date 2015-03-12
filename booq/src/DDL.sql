@@ -61,7 +61,7 @@ create table CartItem (
 create table MainOrder (
 	id int not null auto_increment unique,
 	customerId int,
-	orderDate date,
+	orderDate datetime,
 
 	primary key(id),
 	foreign key(customerId) references Customer(id)
@@ -79,7 +79,7 @@ create table OrderLink (
 create table Ratings (
 	customerId int,
 	bookId int,
-	ratingDate date,
+	ratingDate datetime,
 	rating int,
 	description nvarchar(1000),
 

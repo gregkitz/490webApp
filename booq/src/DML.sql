@@ -87,3 +87,5 @@ insert into Ratings(bookId, customerId, ratingDate, rating) values
 update Ratings SET description = 
   "I was blown away by this book"
   where bookId = 1 and customerId = 1;
+
+insert into MainOrder (customerId, orderDate) values (1, now());
