@@ -30,13 +30,13 @@ connPool.test();
 %>
  
 <h2> 
-
+<br><br><br>
 <%
 Genre theGenre; 
 
 while (iterator.hasNext()) {
  theGenre  = iterator.next(); %>
-<br><a href="/booq/MainServlet?action=search&search=<%=theGenre.getName() %>" >
+<br><a href="/booq/MainServlet?action=search&search=notNull&searchType=genre&genreID=<%=theGenre.getId() %>" >
 <%=theGenre.getId() %> <%=theGenre.getName() %> </a><br>
 
 <% }

@@ -50,21 +50,37 @@
 %>
 <% 
 connPool = new DBConnectionPool();
+ArrayList<Book> books = null; 
 
-ArrayList<Book> books = connPool.searchBooks(search); 
+
+
+if(request.getParameter("searchType") != null){
+	
+	
+	if (request.getParameter("searchType").equals("genre") ){
+		books = connPool.getBooksInCategory(Integer.parseInt(request.getParameter("genreID"))); 
+		System.out.println(request.getParameter("genreID") + "this genre");
+	}
+	
+}
+else { 
+	 books = connPool.searchBooks(search);
+}
 Iterator<Book> iterator = books.iterator(); 
+
+
 
 Book book; 
 
 if(iterator.hasNext()){
-	book = (Book) iterator.next(); 
+	 
 } 
 else {
 %>	<br><br><br><h3>No results found!</h3><%
 }
 //Book book;
 %>
-<br><br><br>
+<br><br><br><br>
 
 
 <div class="container">
@@ -72,7 +88,7 @@ else {
 		
 		<%while (iterator.hasNext()) {
 		  book = iterator.next(); %>
-		   <img class="img-responsive img-rounded" style="float:left;margin:30px;" ""height="50" width="50" src="<%=book.getPicturePath()%>.jpg"  alt="">
+		   <img class="img-responsive img-rounded" style="float:left;margin:30px;" "height="50" width="50" src="<%=book.getPicturePath()%>.jpg"  alt="">
 		  <div>
 		<h3> 
 		  <a href="/booq/MainServlet?action=itemDetails&bookResult=<%=book.getId() %>" >
