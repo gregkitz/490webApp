@@ -24,7 +24,7 @@
    <title>booq!</title>
 
    <!-- Bootstrap core CSS -->
-   <link href="css/bootstrap.min.css" rel="stylesheet">
+   
 
    <!-- Custom styles for this template -->
    <link href="jumbotron.css" rel="stylesheet">
@@ -100,7 +100,7 @@ System.out.println(book.getPicturePath());
 <!--  END QUANTITY SELECTION BOX  -->
       <br>
         <form method="GET" ">
-  <input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
+  <input id="input-2ba" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
   <input type="submit">
   </form>
       </div>
@@ -210,7 +210,7 @@ System.out.println(book.getPicturePath());
         $('.rb-rating').rating({'showCaption':true, 'stars':'3', 'min':'0', 'max':'3', 'step':'1', 'size':'xs', 'starCaptions': {0:'status:nix', 1:'status:wackelt', 2:'status:geht', 3:'status:laeuft'}});
     });
 </script>
-  <script src="js/bootstrap.min.js"></script>
+
 
   
 </body>
