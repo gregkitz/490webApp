@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="navBar.jsp" flush="true"/>
 <br><br><br><br>
-<h2>Thank you for your purchase for: <%=session.getAttribute("cartTotal") %></h2>
+<h2>Thank you for your purchase for: $<%=session.getAttribute("cartTotal") %></h2>
 <%session.removeAttribute("cart") ;%><%
 ArrayList<CartItem> shoppingCart  = new ArrayList<CartItem>(); 
 if (session.getAttribute("cart") == null){
