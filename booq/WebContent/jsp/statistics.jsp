@@ -66,7 +66,7 @@ Book book;
         <div class="row  pad-top">
            	<div class="panel panel-default">
          		<div class="panel-heading">
-           			<strong>By order</strong>  
+           			<strong>All Orders</strong>  
          		</div>
                 <div class="panel-body">
                    	<div class="col-md-6 col-sm-8 col-xs-10">
@@ -110,12 +110,6 @@ Book book;
 		</div>
 		</div>
 	</div>
-	
-	    <!-- jQuery -->
-     <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>
