@@ -43,4 +43,4 @@ select * from CartItem;
 /*testing CreateOrder.getOrder()*/  
 select * from OrderLink order by orderId;
 select * from MainOrder where id = 5;
-select * from CartItem where id = 1;
+select * from CartItem;

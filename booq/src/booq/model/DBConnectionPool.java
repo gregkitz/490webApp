@@ -154,5 +154,8 @@ public class DBConnectionPool {
 		return CreateOrder.getOrders(this);
 	}
 	
+	public ArrayList<Rating> getTopRatings(int size) {
+		return RatingQueries.getTopRating(this, size);
+	}
 	
 }
