@@ -77,7 +77,7 @@ public class RatingQueries {
 			
 			if (conn != null) {
 				Statement s = conn.createStatement();
-				s.executeQuery(query);
+				s.executeUpdate(query);
 				s.close();
 			}
 			connPool.closeAll();
