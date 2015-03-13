@@ -136,6 +136,9 @@ public class MainServlet extends HttpServlet {
 	    	case "profile":
 	    		url = "/jsp/profile.jsp";
 	    		break;
+	    	case "statistics":
+	    		url = "/jsp/statistics.jsp";
+	    		break;
 	    	default: 
 	    		System.out.println("default"); 
 	    		break; 

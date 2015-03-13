@@ -3,6 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="booq.beans.Customer" %>
 <%@ page import="booq.beans.Order" %>
+<%@ page import="booq.beans.Book" %>
+<%@ page import="booq.beans.CartItem" %>
 <%@page import="booq.model.DBConnectionPool"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
@@ -45,8 +47,11 @@
 ArrayList<Order> orders;
 connPool = new DBConnectionPool();
 orders = connPool.getOrders();
-Iterator<Order> iterator = orders.iterator();
+Iterator<Order> orderI = orders.iterator();
+CartItem cartItem;
 Order order;
+Customer c;
+Book book;
 
 %>
 
@@ -64,69 +69,53 @@ Order order;
            			<strong>By order</strong>  
          		</div>
                 <div class="panel-body">
-                    	<% while (iterator.hasNext()) {
-                    		order = iterator.next();	
-                    	%>
-                    	<div class="col-md-6 col-sm-8 col-xs-10">
-<table class="table">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-                       		
-                       		<div>
-                       			<strong>ID =</strong><%=order.getId()%>
-                       		</div>
-                       		<br>
-                       		<div>
-                       			<strong>Email: </strong><br>
-                       		</div>
-                       		<br>
-                       		<div>
-                       			<strong>Address: </strong> <br>
-                       				
-                       		</div>
-                		</div>
-		                <div>
-                       		<strong>Credit Card Information: </strong><br>
-                       		Name:<br>
-                       		Number: <br>
-                       		Expiration Date: 
-                       	</div>
-                       	<%
-                    	}
+                   	<div class="col-md-6 col-sm-8 col-xs-10">
+						<table class="table">
+						    <thead>
+						      <tr>
+						        <th>Name</th>
+						        <th>Title</th>
+						        <th>Quantity</th>
+						        <th>Order Date</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						    <% while (orderI.hasNext()) {
+                   		order = orderI.next();
+                   		order.display();
+                   		c = connPool.getCustomer(order.getCustId());
+                   		Iterator<CartItem> itemI = order.getItems().iterator();
+                   		
+                   		while (itemI.hasNext()) {
+                   			cartItem = itemI.next();
+                   			book = connPool.getBookDetails(cartItem.getBookId());
+                   		
+                   			
+                   	%>
+						      <tr>
+						        <td><%=c.getcName() %></td>
+						        <td><%=book.getTitle()%></td>
+						        <td><%=cartItem.getQuantity() %></td>
+						        <td><%=order.getDate()%></td>
+						      </tr>
+						      <%
+                    	}}
                        	%>
+						    </tbody>
+						  </table>
+                       	
+                       	
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 	
 	    <!-- jQuery -->
-     <script src="js/jquery.js"></script> -->
+     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>

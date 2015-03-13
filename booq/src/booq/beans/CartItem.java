@@ -7,7 +7,9 @@ public class CartItem {
 	private Book book; 
 	
 	//constructor
-	public CartItem(){}
+	public CartItem() {
+		book = new Book();
+	}
 	
 	public CartItem (int quantity, Book book) { //use book queries to get the book if you want it
 		this.book = book; 
@@ -31,4 +33,14 @@ public class CartItem {
     public void setId(int id) 			  { this.id = id; }
     public void setBookId(int bookId) 	  { this.bookId = bookId; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
+    
+    
+    public void display() {
+    	System.out.println("****DISPLAYING CARTITEM " + id + "****");
+    	System.out.println("Book Id: " + bookId);
+    	System.out.println("*BOOK ATTRIBUTES*");
+    	book.display();
+    	System.out.println("Quantity: " + quantity);
+    	
+    }
 }

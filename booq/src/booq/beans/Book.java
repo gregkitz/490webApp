@@ -29,6 +29,16 @@ public class Book {
 	public void setGenreId(int genreId)        { this.genreId = genreId; }
 	public void setGenreName(String genreName) { this.genreName = genreName; }
 	public void setDescription(String des)     { this.des = des; }
-	public void setPicturePath(String picPath) { this.picPath = picPath; } 
+	public void setPicturePath(String picPath) { this.picPath = picPath; }
+	
+	public void display() {
+		System.out.println("**Displaying Book " + id + "**");
+		System.out.println("Title: " + title);
+		System.out.println("Author: " + author);
+		System.out.println("Price: " + price);
+		System.out.println("Stock: " + stock);
+		System.out.println("Genre: " + genreName);
+		System.out.println("Description: " + des);
+	}
   
 }

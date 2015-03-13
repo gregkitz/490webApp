@@ -66,6 +66,7 @@ public class CreateOrder {
 	
 	public static ArrayList<Order> getOrders(DBConnectionPool connPool) {
 		ArrayList<Order> orders = new ArrayList<Order>();
+		
 		String query1 = "select * from OrderLink order by orderId";
 		
 		try {
@@ -76,12 +77,15 @@ public class CreateOrder {
 			
 			if (conn != null) {
 				Statement s = conn.createStatement();
+				Statement s2 = conn.createStatement();
 				ResultSet rs = s.executeQuery(query1);
 				ResultSet rs2;
 				int mainOrderId = 0;
 				int itemId = 1;
 				Order order = new Order();
-				while (rs.next()) {					
+				while (rs.next()) {		
+					System.out.println("mainOrderId is " + mainOrderId);
+					System.out.println("orderId is " + rs.getInt(1));
 					if (mainOrderId != rs.getInt(1)) { //if we have a new order
 						int oldId = mainOrderId;
 						mainOrderId = rs.getInt(1);
@@ -92,7 +96,7 @@ public class CreateOrder {
 						order = new Order();
 						
 						
-						rs2 = s.executeQuery(query2);
+						rs2 = s2.executeQuery(query2);
 						if (rs2.next()) {
 							order.setId(rs2.getInt(1));
 							order.setCustId(rs2.getInt(2));
@@ -101,12 +105,13 @@ public class CreateOrder {
 					}
 					
 					String query3 = "select * from CartItem where id = " + itemId;
-					rs2 = s.executeQuery(query3);
-					if (rs2.next()) {
+					rs2 = s2.executeQuery(query3);
+					while (rs2.next()) {
 						CartItem item = new CartItem();
 						item.setId(rs2.getInt(1));
 						item.setBookId(rs2.getInt(2));
 						item.setQuantity(rs2.getInt(3));
+						if (order == null) { System.out.println("Order == NULL"); }
 						order.getItems().add(item);
 					}
 					

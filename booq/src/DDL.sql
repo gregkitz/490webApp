@@ -54,7 +54,7 @@ create table CartItem (
 	bookId int,
 	quantity int,
 
-	primary key(id, bookId),
+	primary key(id),
 	foreign key(bookId) references Book(id)
 );
 

@@ -85,7 +85,7 @@
   
   <ul class="dropdown-menu" role="menu">
     <li><a href="/booq/MainServlet?action=browse">Browse</a></li>
-    <li><a href="#">Statistics</a></li>
+    <li><a href="/booq/MainServlet?action=statistics">Statistics</a></li>
     <li><a href="#">Weekly deltas</a></li>
     <li><a href="/booq/MainServlet?action=profile">Profile</a></li>
     <li class="divider"></li>
