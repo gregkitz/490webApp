@@ -1,4 +1,4 @@
-# Online Bookstore for Special Topics Class
+# Online Bookstore 
 
 <a href="http://tinypic.com?ref=2jan5er" target="_blank"><img src="http://i59.tinypic.com/2jan5er.png" border="0" alt="Image and video hosting by TinyPic"></a>
 
@@ -10,6 +10,5 @@ Functionality:
 - Checkout/update the inventory
 - Inventory Tracking
 - Weekly top sellers
-- Recommendations for direct-marketing 
-- 
+- Recommendations for direct-marketing
 
